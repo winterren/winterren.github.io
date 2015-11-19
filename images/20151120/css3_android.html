@@ -4,179 +4,527 @@
 	<meta charset="UTF-8">
 	<title>css3android</title>
 	<style>
-	*{
-		margin: 0;
-		padding: 0;
+	/* webkit 动画效果 */
+/* 摇头 */
+.shakehead{
+	-webkit-animation:shakehead 1s ease-out;
+	-webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes shakehead{
+	0%,100%{
+		-webkit-transform: rotate(-4deg) translate(50px, -3px); 
 	}
-	body{
-		background-color: black;
+	50%{
+		-webkit-transform: rotate(4deg) translate(-50px, -3px); 
 	}
-	.wrapper{
-		margin: auto;
-		width: 250px;
+}
+/* 摇触角 */
+.shakeant_l{
+	-webkit-animation:shakeant_l 1s ease-out;
+	-webkit-animation-iteration-count:infinite;
+}
+.shakeant_r{
+	-webkit-animation:shakeant_r 1s ease-out;
+	-webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes shakeant_l{
+	0%,50%,100%{
+		-webkit-transform: rotate(-5deg)  ; 
 	}
-	.android{
-		margin-top:  100px;
-		position: relative;
+	25%,75%{
+		-webkit-transform: rotate(-45deg) translate(-20px,-5px) ; 
 	}
-	/*头部*/
-	.head{
-		background-color: gray;
-		height: 110px;
-		width: 250px;
-		border-radius: 125px 125px 0 0;
-		top: 50;
+}
+@-webkit-keyframes shakeant_r{
+	0%,50%,100%{
+		-webkit-transform: rotate(5deg) ; 
 	}
-	.ant_l,.ant_r{
-		position: absolute;
-		height: 60px;
-		width: 10px;
-		border-radius: 25%;
-		background-color: gray;
-		top: -40px;
+	25%,75%{
+		-webkit-transform: rotate(45deg) translate(20px,-5px) ; 
 	}
-	.ant_l{
-		left: 65px;
-		transform:rotate(-25deg);
-	}
-	.ant_r{
-		left: 175px;
-		transform:rotate(25deg);
-	}
-	.eye_l,.eye_r{
-		position: absolute;
-		height: 25px;
-		width: 25px;
-		border-radius: 50%;
-		background-color: #000000;
-		top: 40px;
-	}
-	.eye_l{left: 60px;}
-	.eye_r{left: 165px;}
+}
 
-	/* 身体 */
-	.body{
-		height:200px; 
-		width:250px;
-		background-color: gray;
-		margin-top: 10px;
-		border-radius: 0 0 25px 25px;
+/* 摇身体 */
+.shakebody{
+	-webkit-animation:shakebody 0.5s ease-out;
+	-webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes shakebody{
+	0%,100%{
+		-webkit-transform: rotate(-2deg) translate(3px, -3px); 
 	}
-	.arm_l,.arm_r{
-		width: 50px;
-		height: 160px;
-		background-color: gray;
-		position: absolute;
-		border-radius: 25px;
+	50%{
+		-webkit-transform: rotate(2deg) translate(-3px, -3px); 
 	}
-	.arm_l{
-		left: -60px;
+}
+/* 摇手臂 */
+.shakearm{
+	-webkit-animation:shakearm 0.2s ease-out;
+	-webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes shakearm{
+	0%,100%{
+		-webkit-transform: rotate(-2deg) translate(3px, -3px); 
 	}
-	.arm_r{
-		left: 260px;
+	50%{
+		-webkit-transform: rotate(2deg) translate(-3px, -3px); 
 	}
+}
+/* 眨眼 */
+.blink{
+	-webkit-animation:eyeblink 5s ease-out;
+	-webkit-animation-iteration-count:infinite;
+}
+@-webkit-keyframes eyeblink{
+	50%{
+		background-color:white;
+	}
+}
 
-	/* 腿部 */
-	.foot{
-		position: relative;
-	}
-	.foot_l,.foot_r{
-		position: absolute;
-		height: 80px;
-		width: 50px;
-		border-radius: 0 0 25px 25px;
-		background-color: gray;
-		top: -10px;
-	}
-	.foot_l{
-		left: 50px;
-	}
-	.foot_r{
-		left: 150px;
-	}
 
-	/* 动画效果 */
-	.head{
-		-webkit-animation:shakehead 1s ease-out;
-		-webkit-animation-iteration-count:infinite;
+
+
+/* moz 动画效果 */
+/* 摇头 */
+.shakehead{
+	-moz-animation:shakehead 1s ease-out;
+	-moz-animation-iteration-count:infinite;
+}
+@-moz-keyframes shakehead{
+	0%,100%{
+		-moz-transform: rotate(-4deg) translate(50px, -3px); 
 	}
-	@-webkit-keyframes shakehead{
-		0%,100%{
-			-webkit-transform: rotate(-4deg) translate(50px, -3px); 
-		}
-		50%{
-			-webkit-transform: rotate(4deg) translate(-50px, -3px); 
-		}
+	50%{
+		-moz-transform: rotate(4deg) translate(-50px, -3px); 
 	}
-	.ant_l{
-		-webkit-animation:shakeant_l 1s ease-out;
-		-webkit-animation-iteration-count:infinite;
+}
+/* 摇触角 */
+.shakeant_l{
+	-moz-animation:shakeant_l 1s ease-out;
+	-moz-animation-iteration-count:infinite;
+}
+.shakeant_r{
+	-moz-animation:shakeant_r 1s ease-out;
+	-moz-animation-iteration-count:infinite;
+}
+@-moz-keyframes shakeant_l{
+	0%,50%,100%{
+		-moz-transform: rotate(-5deg)  ; 
 	}
-	.ant_r{
-		-webkit-animation:shakeant_r 1s ease-out;
-		-webkit-animation-iteration-count:infinite;
+	25%,75%{
+		-moz-transform: rotate(-45deg) translate(-20px,-5px) ; 
 	}
-	@-webkit-keyframes shakeant_l{
-		0%,50%,100%{
-			-webkit-transform: rotate(-5deg)  ; 
-		}
-		25%,75%{
-			-webkit-transform: rotate(-45deg) translate(-20px,-5px) ; 
-		}
+}
+@-moz-keyframes shakeant_r{
+	0%,50%,100%{
+		-moz-transform: rotate(5deg) ; 
 	}
-	@-webkit-keyframes shakeant_r{
-		0%,50%,100%{
-			-webkit-transform: rotate(5deg) ; 
-		}
-		25%,75%{
-			-webkit-transform: rotate(45deg) translate(20px,-5px) ; 
-		}
+	25%,75%{
+		-moz-transform: rotate(45deg) translate(20px,-5px) ; 
 	}
-	.body{
-		-webkit-animation:shakebody 0.5s ease-out;
-		-webkit-animation-iteration-count:infinite;
+}
+
+/* 摇身体 */
+.shakebody{
+	-moz-animation:shakebody 0.5s ease-out;
+	-moz-animation-iteration-count:infinite;
+}
+@-moz-keyframes shakebody{
+	0%,100%{
+		-moz-transform: rotate(-2deg) translate(3px, -3px); 
 	}
-	@-webkit-keyframes shakebody{
-		0%,100%{
-			-webkit-transform: rotate(-2deg) translate(3px, -3px); 
-		}
-		50%{
-			-webkit-transform: rotate(2deg) translate(-3px, -3px); 
-		}
+	50%{
+		-moz-transform: rotate(2deg) translate(-3px, -3px); 
 	}
-	.eye_l,.eye_r{
-		-webkit-animation:eyeblink 5s ease-out;
-		-webkit-animation-iteration-count:infinite;
+}
+/* 摇手臂 */
+.shakearm{
+	-moz-animation:shakearm 0.2s ease-out;
+	-moz-animation-iteration-count:infinite;
+}
+@-moz-keyframes shakearm{
+	0%,100%{
+		-moz-transform: rotate(-2deg) translate(3px, -3px); 
 	}
-	@-webkit-keyframes eyeblink{
-		0%,100%{
-			
-		}
-		50%{
-			background-color:white;
-		}
+	50%{
+		-moz-transform: rotate(2deg) translate(-3px, -3px); 
 	}
+}
+/* 眨眼 */
+.blink{
+	-moz-animation:eyeblink 5s ease-out;
+	-moz-animation-iteration-count:infinite;
+}
+@-moz-keyframes eyeblink{
+	50%{
+		background-color:white;
+	}
+}
+
+
+
+
+/* ms 动画效果 */
+/* 摇头 */
+.shakehead{
+	-ms-animation:shakehead 1s ease-out;
+	-ms-animation-iteration-count:infinite;
+}
+@-ms-keyframes shakehead{
+	0%,100%{
+		-ms-transform: rotate(-4deg) translate(50px, -3px); 
+	}
+	50%{
+		-ms-transform: rotate(4deg) translate(-50px, -3px); 
+	}
+}
+/* 摇触角 */
+.shakeant_l{
+	-ms-animation:shakeant_l 1s ease-out;
+	-ms-animation-iteration-count:infinite;
+}
+.shakeant_r{
+	-ms-animation:shakeant_r 1s ease-out;
+	-ms-animation-iteration-count:infinite;
+}
+@-ms-keyframes shakeant_l{
+	0%,50%,100%{
+		-ms-transform: rotate(-5deg)  ; 
+	}
+	25%,75%{
+		-ms-transform: rotate(-45deg) translate(-20px,-5px) ; 
+	}
+}
+@-ms-keyframes shakeant_r{
+	0%,50%,100%{
+		-ms-transform: rotate(5deg) ; 
+	}
+	25%,75%{
+		-ms-transform: rotate(45deg) translate(20px,-5px) ; 
+	}
+}
+
+/* 摇身体 */
+.shakebody{
+	-ms-animation:shakebody 0.5s ease-out;
+	-ms-animation-iteration-count:infinite;
+}
+@-ms-keyframes shakebody{
+	0%,100%{
+		-ms-transform: rotate(-2deg) translate(3px, -3px); 
+	}
+	50%{
+		-ms-transform: rotate(2deg) translate(-3px, -3px); 
+	}
+}
+/* 摇手臂 */
+.shakearm{
+	-ms-animation:shakearm 0.2s ease-out;
+	-ms-animation-iteration-count:infinite;
+}
+@-ms-keyframes shakearm{
+	0%,100%{
+		-ms-transform: rotate(-2deg) translate(3px, -3px); 
+	}
+	50%{
+		-ms-transform: rotate(2deg) translate(-3px, -3px); 
+	}
+}
+/* 眨眼 */
+.blink{
+	-ms-animation:eyeblink 5s ease-out;
+	-ms-animation-iteration-count:infinite;
+}
+@-ms-keyframes eyeblink{
+	50%{
+		background-color:white;
+	}
+}
+
+
+
+/* o 动画效果 */
+/* 摇头 */
+.shakehead{
+	-o-animation:shakehead 1s ease-out;
+	-o-animation-iteration-count:infinite;
+}
+@-o-keyframes shakehead{
+	0%,100%{
+		-o-transform: rotate(-4deg) translate(50px, -3px); 
+	}
+	50%{
+		-o-transform: rotate(4deg) translate(-50px, -3px); 
+	}
+}
+/* 摇触角 */
+.shakeant_l{
+	-o-animation:shakeant_l 1s ease-out;
+	-o-animation-iteration-count:infinite;
+}
+.shakeant_r{
+	-o-animation:shakeant_r 1s ease-out;
+	-o-animation-iteration-count:infinite;
+}
+@-o-keyframes shakeant_l{
+	0%,50%,100%{
+		-o-transform: rotate(-5deg)  ; 
+	}
+	25%,75%{
+		-o-transform: rotate(-45deg) translate(-20px,-5px) ; 
+	}
+}
+@-o-keyframes shakeant_r{
+	0%,50%,100%{
+		-o-transform: rotate(5deg) ; 
+	}
+	25%,75%{
+		-o-transform: rotate(45deg) translate(20px,-5px) ; 
+	}
+}
+
+/* 摇身体 */
+.shakebody{
+	-o-animation:shakebody 0.5s ease-out;
+	-o-animation-iteration-count:infinite;
+}
+@-o-keyframes shakebody{
+	0%,100%{
+		-o-transform: rotate(-2deg) translate(3px, -3px); 
+	}
+	50%{
+		-o-transform: rotate(2deg) translate(-3px, -3px); 
+	}
+}
+/* 摇手臂 */
+.shakearm{
+	-o-animation:shakearm 0.2s ease-out;
+	-o-animation-iteration-count:infinite;
+}
+@-o-keyframes shakearm{
+	0%,100%{
+		-o-transform: rotate(-2deg) translate(3px, -3px); 
+	}
+	50%{
+		-o-transform: rotate(2deg) translate(-3px, -3px); 
+	}
+}
+/* 眨眼 */
+.blink{
+	-o-animation:eyeblink 5s ease-out;
+	-o-animation-iteration-count:infinite;
+}
+@-o-keyframes eyeblink{
+	50%{
+		background-color:white;
+	}
+}
+
+
+
+/* w3c 动画效果 */
+/* 摇头 */
+.shakehead{
+	animation:shakehead 1s ease-out;
+	animation-iteration-count:infinite;
+}
+@keyframes shakehead{
+	0%,100%{
+		transform: rotate(-4deg) translate(50px, -3px); 
+	}
+	50%{
+		transform: rotate(4deg) translate(-50px, -3px); 
+	}
+}
+/* 摇触角 */
+.shakeant_l{
+	animation:shakeant_l 1s ease-out;
+	animation-iteration-count:infinite;
+}
+.shakeant_r{
+	animation:shakeant_r 1s ease-out;
+	animation-iteration-count:infinite;
+}
+@keyframes shakeant_l{
+	0%,50%,100%{
+		transform: rotate(-5deg)  ; 
+	}
+	25%,75%{
+		transform: rotate(-45deg) translate(-20px,-5px) ; 
+	}
+}
+@keyframes shakeant_r{
+	0%,50%,100%{
+		transform: rotate(5deg) ; 
+	}
+	25%,75%{
+		transform: rotate(45deg) translate(20px,-5px) ; 
+	}
+}
+
+/* 摇身体 */
+.shakebody{
+	animation:shakebody 0.5s ease-out;
+	animation-iteration-count:infinite;
+}
+@keyframes shakebody{
+	0%,100%{
+		transform: rotate(-2deg) translate(3px, -3px); 
+	}
+	50%{
+		transform: rotate(2deg) translate(-3px, -3px); 
+	}
+}
+/* 摇手臂 */
+.shakearm{
+	animation:shakearm 0.2s ease-out;
+	animation-iteration-count:infinite;
+}
+@keyframes shakearm{
+	0%,100%{
+		transform: rotate(-2deg) translate(3px, -3px); 
+	}
+	50%{
+		transform: rotate(2deg) translate(-3px, -3px); 
+	}
+}
+/* 眨眼 */
+.blink{
+	animation:eyeblink 5s ease-out;
+	animation-iteration-count:infinite;
+}
+@keyframes eyeblink{
+	50%{
+		background-color:white;
+	}
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: black;
+}
+.wrapper{
+	margin: auto;
+	width: 250px;
+}
+.android{
+	margin-top:  100px;
+	position: relative;
+}
+/*头部*/
+.head{
+	background-color: rgb(158, 197, 112);
+	height: 110px;
+	width: 250px;
+	border-radius: 125px 125px 0 0;
+	top: 50;
+}
+.ant_l,.ant_r{
+	position: absolute;
+	height: 60px;
+	width: 10px;
+	border-radius: 25%;
+	background-color: rgb(158, 197, 112);
+	top: -40px;
+}
+.ant_l{
+	left: 65px;
+	-webkit-transform:rotate(-25deg);
+	-moz-transform:rotate(-25deg);
+	-o-transform:rotate(-25deg);
+	-ms-transform:rotate(-25deg);
+	transform:rotate(-25deg);
+}
+.ant_r{
+	left: 175px;
+	-webkit-transform:rotate(25deg);
+	-moz-transform:rotate(25deg);
+	-o-transform:rotate(25deg);
+	-ms-transform:rotate(25deg);
+	transform:rotate(25deg);
+}
+.eye_l,.eye_r{
+	position: absolute;
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+	background-color: #000000;
+	top: 40px;
+}
+.eye_l{left: 60px;}
+.eye_r{left: 165px;}
+
+/* 身体 */
+.body{
+	height:200px; 
+	width:250px;
+	background-color: rgb(158, 197, 112);
+	margin-top: 10px;
+	border-radius: 0 0 25px 25px;
+}
+.arm_l,.arm_r{
+	width: 50px;
+	height: 160px;
+	background-color: rgb(158, 197, 112);
+	position: absolute;
+	border-radius: 25px;
+}
+.arm_l{
+	left: -60px;
+}
+.arm_r{
+	left: 260px;
+}
+
+/* 腿部 */
+.foot{
+	position: relative;
+}
+.foot_l,.foot_r{
+	position: absolute;
+	height: 80px;
+	width: 50px;
+	border-radius: 0 0 25px 25px;
+	background-color: rgb(158, 197, 112);
+	top: -10px;
+}
+.foot_l{
+	left: 50px;
+}
+.foot_r{
+	left: 150px;
+}
+
+
 	</style>
 </head>
 <body>
-<div class="wrapper">
-	<div class="android">
-		<div class="head">
-			<div class="ant_l"></div>
-			<div class="ant_r"></div>
-			<div class="eye_l"></div>
-			<div class="eye_r"></div>
-		</div>
-		<div class="body">
-			<div class="mainbody"></div>
-			<div class="arm_l"></div>
-			<div class="arm_r"></div>
-		</div>
-		<div class="foot">
-			<div class="foot_l"></div>
-			<div class="foot_r"></div>
+	<!-- 容器居中 -->
+	<div class="wrapper">
+		<!-- 安卓机器人开始 -->
+		<div class="android">
+			<!-- 头部 -->
+			<div class="head shakehead">
+				<div class="ant_l shakeant_l"></div>
+				<div class="ant_r shakeant_r"></div>
+				<div class="eye_l blink"></div>
+				<div class="eye_r blink"></div>
+			</div>
+			<!-- 身体 -->
+			<div class="body shakebody">
+				<div class="mainbody"></div>
+				<div class="arm_l shakearm"></div>
+				<div class="arm_r shakearm"></div>
+			</div>
+			<!-- 脚部 -->
+			<div class="foot">
+				<div class="foot_l shakearm"></div>
+				<div class="foot_r shakearm"></div>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
 </html>
