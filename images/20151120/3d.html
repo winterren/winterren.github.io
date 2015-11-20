@@ -9,160 +9,185 @@
 		padding: 0;
 	}
 	.view{
-		margin: 160px auto;
-		width: 160px;
-		height: 160px;
+		margin: 150px auto;
+		width: 150px;
+		height: 150px;
 	}
+	/* 设置透视与动画 */
 	.box{
 		-webkit-perspective:0;
-		        perspective:0;
 		-webkit-perspective-origin:0px 0px;
-		        perspective-origin:0px 0px;
-
-		-webkit-animation-name: animation;
-
-		        animation-name: animation;
-		-webkit-animation-timing-function:ease-in-out;
-		        animation-timing-function:ease-in-out;
+		-webkit-animation: rotate 10s ease-in-out;
 		-webkit-animation-iteration-count:infinite;
-		        animation-iteration-count:infinite;
-		-webkit-animation-duration:3s;
-		        animation-duration:3s;
 		-webkit-transform-style:preserve-3d;
-		        transform-style:preserve-3d;
-		-webkit-transform-origin:80px 80px 80px;
-		        transform-origin:80px 80px 80px;
+		-webkit-transform-origin:75px 75px 0px;
+
+		-moz-perspective:0;
+		-moz-perspective-origin:0px 0px;
+		-moz-animation: rotate 10s ease-in-out;
+		-moz-animation-iteration-count:infinite;
+		-moz-transform-style:preserve-3d;
+		-moz-transform-origin:75px 75px 0px;
+
+		-o-perspective:0;
+		-o-perspective-origin:0px 0px;
+		-o-animation: rotate 10s ease-in-out;
+		-o-animation-iteration-count:infinite;
+		-o-transform-style:preserve-3d;
+		-o-transform-origin:75px 75px 0px;
+
+		-ms-perspective:0;
+		-ms-perspective-origin:0px 0px;
+		-ms-animation: rotate 10s ease-in-out;
+		-ms-animation-iteration-count:infinite;
+		-ms-transform-style:preserve-3d;
+		-ms-transform-origin:75px 75px 0px;
+		
+		perspective:0;
+		perspective-origin:0px 0px;
+		animation: rotate 10s ease-in-out;
+		animation-iteration-count:infinite;
+		transform-style:preserve-3d;
+		transform-origin:75px 75px 0px;
 	}
-	@-webkit-keyframes animation{
+	/* 设置具体动画效果 */
+	@-webkit-keyframes rotate{
 	     0% {
-	       -webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
+	       -webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       -moz-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       -o-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       -ms-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
 	     }
-	     15% {
-	       -webkit-transform:rotateY(90deg) rotateX(0deg) rotateZ(180deg) translateZ(0px);
-	               transform:rotateY(90deg) rotateX(0deg) rotateZ(180deg) translateZ(0px);
+	     10% {
+	       -webkit-transform:rotateY(90deg) rotateX(0deg) rotateZ(0deg) ;
+	       -moz-transform:rotateY(90deg) rotateX(0deg) rotateZ(0deg) ;
+	       -o-transform:rotateY(90deg) rotateX(0deg) rotateZ(0deg) ;
+	       -ms-transform:rotateY(90deg) rotateX(0deg) rotateZ(0deg) ;
+	       transform:rotateY(90deg) rotateX(0deg) rotateZ(0deg) ;
+	     }
+	     20% {
+	       -webkit-transform:rotateY(180deg) rotateX(0deg) rotateZ(0deg) ;
+	       -moz-transform:rotateY(180deg) rotateX(0deg) rotateZ(0deg) ;
+	       -o-transform:rotateY(180deg) rotateX(0deg) rotateZ(0deg) ;
+	       -ms-transform:rotateY(180deg) rotateX(0deg) rotateZ(0deg) ;
+	       transform:rotateY(180deg) rotateX(0deg) rotateZ(0deg) ;
 	     }
 	     30% {
-	       -webkit-transform:rotateY(180deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(180deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
+	       -webkit-transform:rotateY(270deg) rotateX(90deg) rotateZ(0deg) ;
+	       -moz-transform:rotateY(270deg) rotateX(90deg) rotateZ(0deg) ;
+	       -o-transform:rotateY(270deg) rotateX(90deg) rotateZ(0deg) ;
+	       -ms-transform:rotateY(270deg) rotateX(90deg) rotateZ(0deg) ;
+	       transform:rotateY(270deg) rotateX(90deg) rotateZ(0deg) ;
 	     }
-	     45% {
-	       -webkit-transform:rotateY(90deg) rotateX(180deg) rotateZ(0deg) translateZ(0px);
-	               transform:rotateY(90deg) rotateX(180deg) rotateZ(0deg) translateZ(0px);
+	     40% {
+	       -webkit-transform:rotateY(180deg) rotateX(180deg) rotateZ(90deg) ;
+	       -moz-transform:rotateY(180deg) rotateX(180deg) rotateZ(90deg) ;
+	       -o-transform:rotateY(180deg) rotateX(180deg) rotateZ(90deg) ;
+	       -ms-transform:rotateY(180deg) rotateX(180deg) rotateZ(90deg) ;
+	       transform:rotateY(180deg) rotateX(180deg) rotateZ(90deg) ;
 	     }
-	     60% {
-	       -webkit-transform:rotateY(0deg) rotateX(90deg) rotateZ(0deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(90deg) rotateZ(0deg) translateZ(0px);
+	     50% {
+	       -webkit-transform:rotateY(180deg) rotateX(180deg) rotateZ(180deg) ;
+	       -moz-transform:rotateY(180deg) rotateX(180deg) rotateZ(180deg) ;
+	       -o-transform:rotateY(180deg) rotateX(180deg) rotateZ(180deg) ;
+	       -ms-transform:rotateY(180deg) rotateX(180deg) rotateZ(180deg) ;
+	       transform:rotateY(180deg) rotateX(180deg) rotateZ(180deg) ;
 	     }
-	     75% {
-	       -webkit-transform:rotateY(90deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(90deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	     }
-	     89% {
-	       -webkit-transform:rotateY(0deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
-	     }
-	     100% {
-	       -webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	     }
-	  }
-	@keyframes animation{
-	     0% {
-	       -webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	     }
-	     15% {
-	       -webkit-transform:rotateY(90deg) rotateX(0deg) rotateZ(180deg) translateZ(0px);
-	               transform:rotateY(90deg) rotateX(0deg) rotateZ(180deg) translateZ(0px);
-	     }
-	     30% {
-	       -webkit-transform:rotateY(180deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(180deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
-	     }
-	     45% {
-	       -webkit-transform:rotateY(90deg) rotateX(180deg) rotateZ(0deg) translateZ(0px);
-	               transform:rotateY(90deg) rotateX(180deg) rotateZ(0deg) translateZ(0px);
-	     }
-	     60% {
-	       -webkit-transform:rotateY(0deg) rotateX(90deg) rotateZ(0deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(90deg) rotateZ(0deg) translateZ(0px);
-	     }
-	     75% {
-	       -webkit-transform:rotateY(90deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(90deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	     }
-	     89% {
-	       -webkit-transform:rotateY(0deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(90deg) rotateZ(90deg) translateZ(0px);
+	     63% {
+	       -webkit-transform:rotateY(360deg) rotateX(360deg) rotateZ(360deg) ;
+	       -moz-transform:rotateY(360deg) rotateX(360deg) rotateZ(360deg) ;
+	       -o-transform:rotateY(360deg) rotateX(360deg) rotateZ(360deg) ;
+	       -ms-transform:rotateY(360deg) rotateX(360deg) rotateZ(360deg) ;
+	       transform:rotateY(360deg) rotateX(360deg) rotateZ(360deg) ;
 	     }
 	     100% {
-	       -webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
-	               transform:rotateY(0deg) rotateX(0deg) rotateZ(90deg) translateZ(0px);
+	       -webkit-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       -moz-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       -o-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       -ms-transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
+	       transform:rotateY(0deg) rotateX(0deg) rotateZ(0deg) ;
 	     }
 	  }
 
-	/* 160x160块 */
+	/* 150x150块 */
 	.block{
 		position: absolute;
-		width: 160px;
-		height: 160px;
+		width: 150px;
+		height: 150px;
 		border: 1px solid black;
 	}
 	.a{
-		-webkit-transform:translateZ(80px);
-		        transform:translateZ(80px);
+		-webkit-transform:translateZ(75px);
 	}
 	.b{
-		-webkit-transform:translateZ(-80px);
-		        transform:translateZ(-80px);
+		-webkit-transform:translateZ(-75px);
 	}
 	.c{
-		-webkit-transform:translateY(-80px) rotateX(90deg) ;
-		        transform:translateY(-80px) rotateX(90deg) ;
+		-webkit-transform:translateY(-75px) rotateX(90deg) ;
 	}
 	.d{
-		-webkit-transform:translateY(80px) rotateX(-90deg);
-		        transform:translateY(80px) rotateX(-90deg);
+		-webkit-transform:translateY(75px) rotateX(-90deg);
 	}
 	.e{
-		-webkit-transform:translateX(80px) rotateY(-90deg);
-		        transform:translateX(80px) rotateY(-90deg);
+		-webkit-transform:translateX(75px) rotateY(-90deg);
 	}
 	.f{
-		-webkit-transform:translateX(-80px) rotateY(90deg);
-		        transform:translateX(-80px) rotateY(90deg);
+		-webkit-transform:translateX(-75px) rotateY(90deg);
 	}
 
-	/* 80x80色块 */
+	/* 50x50色块 */
 	.colorblock{
 		position: relative;
-		width: 78px;
-		height: 78px;
+		width: 48px;
+		height: 48px;
 		border: 1px solid black;
 		float: left;
+		opacity: 0.5;
 	}
 	.a .colorblock{
-		background: radial-gradient(circle,#0072FF 45%,black 200%);
+		background: radial-gradient(circle,#0072FF 45%,black 180%);
+		background: -webkit-radial-gradient(circle,#0072FF 45%,black 180%);
+		background: -moz-radial-gradient(circle,#0072FF 45%,black 180%);
+		background: -o-radial-gradient(circle,#0072FF 45%,black 180%);
+		background: -ms-radial-gradient(circle,#0072FF 45%,black 180%);
 	}
 	.b .colorblock{
-		background: radial-gradient(circle,purple 45%,black 200%);
+		background: radial-gradient(circle,purple 45%,black 180%);
+		background: -webkit-radial-gradient(circle,purple 45%,black 180%);
+		background: -moz-radial-gradient(circle,purple 45%,black 180%);
+		background: -o-radial-gradient(circle,purple 45%,black 180%);
+		background: -ms-radial-gradient(circle,purple 45%,black 180%);
 	}
 	.c .colorblock{
-		background: radial-gradient(circle,orange 45%,black 200%);
+		background: radial-gradient(circle,orange 45%,black 180%);
+		background: -webkit-radial-gradient(circle,orange 45%,black 180%);
+		background: -moz-radial-gradient(circle,orange 45%,black 180%);
+		background: -o-radial-gradient(circle,orange 45%,black 180%);
+		background: -ms-radial-gradient(circle,orange 45%,black 180%);
 	}
 	.d .colorblock{
-		background: radial-gradient(circle,white 45%,black 200%);
+		background: radial-gradient(circle,white 45%,black 180%);
+		background: -webkit-radial-gradient(circle,white 45%,black 180%);
+		background: -moz-radial-gradient(circle,white 45%,black 180%);
+		background: -o-radial-gradient(circle,white 45%,black 180%);
+		background: -ms-radial-gradient(circle,white 45%,black 180%);
 	}
 	.e .colorblock{
-		background: radial-gradient(circle,yellow 45%,black 200%);
+		background: radial-gradient(circle,yellow 45%,black 180%);
+		background: -webkit-radial-gradient(circle,yellow 45%,black 180%);
+		background: -moz-radial-gradient(circle,yellow 45%,black 180%);
+		background: -o-radial-gradient(circle,yellow 45%,black 180%);
+		background: -ms-radial-gradient(circle,yellow 45%,black 180%);
 	}
 	.f .colorblock{
-		background: radial-gradient(circle,green 45%,black 200%);
+		background: radial-gradient(circle,green 45%,black 180%);
+		background: -webkit-radial-gradient(circle,green 45%,black 180%);
+		background: -moz-radial-gradient(circle,green 45%,black 180%);
+		background: -o-radial-gradient(circle,green 45%,black 180%);
+		background: -ms-radial-gradient(circle,green 45%,black 180%);
 	}
-
-
-	</style>
+	</style>	
 </head>
 <body>
 	<div class="view">
@@ -175,8 +200,18 @@
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
 			</div>
 			<div class="block b">
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
@@ -187,8 +222,18 @@
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
 			</div>
 			<div class="block d">
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
@@ -199,8 +244,18 @@
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
 			</div>
 			<div class="block f">
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
+				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
 				<div class="colorblock"></div>
