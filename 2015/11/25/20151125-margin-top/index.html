@@ -17,7 +17,7 @@
 【问题】在以上情况中，inner的margin-top会穿透inner，变成outter的margin-left。（margin-left则没有这个情况）
 【解决】outter加一个overflow:auto或hidden。
 【引申的问题】overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用margin来">
-<meta property="og:updated_time" content="2015-11-25T14:53:56.195Z">
+<meta property="og:updated_time" content="2015-11-25T14:55:08.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于margin穿透的两三事">
 <meta name="twitter:description" content="遇到一个问题：…div.outter&amp;gt;div.inner
@@ -228,7 +228,7 @@
 <h2 id="【问题】">【问题】</h2><p>在以上情况中，inner的margin-top会穿透inner，变成outter的margin-left。（margin-left则没有这个情况）</p>
 <h2 id="【解决】">【解决】</h2><p>outter加一个overflow:auto或hidden。</p>
 <h2 id="【引申的问题】">【引申的问题】</h2><p>overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用margin来实现。<br>正所谓<strong> “同级用margine，父子用padding” </strong>。<br>换成padding-top来解决会怎么样呢？</p>
-<h2 id="【引申的解决】">【引申的解决】</h2><p>用padding-top时，所有css样式就都可以写进outter中。<br>随之而来的问题是如果你的outter是定height的，没有穿透的问题，但是content-box会被撑大。<br><strong> 解决一 </strong>：自己手动把outter的height改成height减去padding-top的值，完美解决。<br><strong> 解决二 </strong>：利用怪异盒子，\box-sizing: border-box;\’，可以在不修改height成难懂数字的情况下解决，缺点是只支持ie8以上浏览器。</p>
+<h2 id="【引申的解决】">【引申的解决】</h2><p>用padding-top时，所有css样式就都可以写进outter中。<br>随之而来的问题是如果你的outter是定height的，没有穿透的问题，但是content-box会被撑大。<br><strong> 解决一 </strong>：自己手动把outter的height改成<strong> height减去padding-top的值 </strong>，完美解决。<br><strong> 解决二 </strong>：利用怪异盒子，<strong> box-sizing: border-box; </strong>，可以在不修改height成难懂数字的情况下解决，缺点是只支持ie8以上浏览器。</p>
 
       
     </div>
