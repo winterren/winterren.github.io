@@ -109,7 +109,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/琐事/" style="font-size: 20px;">琐事</a> <a href="/tags/矿大南湖/" style="font-size: 10px;">矿大南湖</a> <a href="/tags/秋天/" style="font-size: 15px;">秋天</a>
+						<a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/琐事/" style="font-size: 20px;">琐事</a> <a href="/tags/矿大南湖/" style="font-size: 10px;">矿大南湖</a> <a href="/tags/秋天/" style="font-size: 15px;">秋天</a>
 					</div>
 				</section>
 				
@@ -175,6 +175,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-20151125-margin-top" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/25/20151125-margin-top/" class="article-date">
+  	<time datetime="2015-11-25T14:28:15.000Z" itemprop="datePublished">2015-11-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/25/20151125-margin-top/">关于margin穿透的两三事</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="margin穿透">margin穿透</h2><p>遇到一个问题：<br><code><br>…<br>div.outter&gt;div.inner<br>…<br></code><br>【问题】<br>在以上情况中，inner的margin-top会穿透inner，变成outter的margin-left。（margin-left则没有这个情况）</p>
+<p>【解决】<br>outter加一个overflow:auto或hidden。</p>
+<p>【引申的问题】<br>overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用margin来实现。<br>正所谓<strong> “同级用margine，父子用padding” </strong>。<br>换成padding-top来解决会怎么样呢？</p>
+<p>【引申的解决】<br>用padding-top时，所有css样式就都可以写进outter中。<br>随之而来的问题是如果你的outter是定height的，没有穿透的问题，但是content-box会被撑大。<br><strong> 解决一 </strong>：自己手动把outter的height改成height减去padding-top的值，完美解决。<br><strong> 解决二 </strong>：利用怪异盒子，\’box-sizing: border-box;’\，可以在不修改height成难懂数字的情况下解决，缺点是只支持ie8以上浏览器。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/前端/">前端</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-20151120-css3-animation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -216,7 +278,7 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/摄影/">摄影</a><a class="article-category-link" href="/categories/摄影/随笔/">随笔</a>
+	<a class="article-category-link" href="/categories/摄影/">摄影</a><a class="article-category-link" href="/categories/摄影/前端/">前端</a>
 	</div>
 
 
