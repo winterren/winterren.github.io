@@ -390,7 +390,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>遇到一个问题：<br><code>…<br>div.outter&gt;div.inner<br></code></p>
+        <p>遇到一个问题：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">div.outter&gt;div.inner</span><br></pre></td></tr></table></figure></p>
 <h2 id="【问题】">【问题】</h2><p>在以上情况中，inner的margin-top会穿透inner，变成outter的margin-top。（margin-left则没有这个情况）</p>
 <h2 id="【解决】">【解决】</h2><p>outter加一个overflow:auto或hidden。</p>
 <h2 id="【引申的问题】">【引申的问题】</h2><p>overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用margin来实现。<br>正所谓<strong> “同级用margine，父子用padding” </strong>。<br>换成padding-top来解决会怎么样呢？</p>
@@ -504,7 +504,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/10/20151110-finish-dom/">DOM看完 &amp; 琐事</a>
+      <a class="article-title" href="/2015/11/10/20151110-finish-dom/">DOM学习有感 &amp; 琐事</a>
     </h1>
   
 
@@ -513,7 +513,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="学习有感">学习有感</h2><p>拖延了一天才大略的看完了DOM。准备再重看JS，学学实例。<br>另外买了一本php cookbook，希望看后端的过程中能比前端更得要领一点。<br>总的来说，看书过程比较痛苦。后续多琢磨琢磨别人的前端是怎么做的然后临摹一遍，可能会痛快一些。</p>
+        <h2 id="学习有感">学习有感</h2><p>拖延了一天才大略的对DOM，大略的感觉就是把HTML标签变成树形再通过定义好的方法提取把树上的叶子提取出来。<br>再回头细读一下CSS和JS，学学实例。<br>另外买了一本php cookbook，希望如果有空看看后端，能比前端更得要领一点。<br>总的来说，看书过程比较痛苦。后续多琢磨琢磨别人的前端是怎么做的然后临摹一遍，可能会痛快一些。</p>
 <h2 id="双十一">双十一</h2><p>把内存和镜头都买了。<br>这种通过简单粗暴的杀钱方法得到的快感就跟看电视剧和玩游戏一样，伴有负罪感且不可能有长的延续性的。<br>希望过了短效的快感之后，这些东西能给自己工作效率、生活质量带来长效的提高。</p>
 
       
@@ -575,7 +575,7 @@
       
         <h2 id="1">1</h2><p>本来打算把Dropbox共享的hexo文件夹在mac mini上部署一遍，实现win+mac双机交替写博客的。<br>不过最终部署失败，一直卡在缺少module，有个.build之类的文件夹有问题。<br>百度之后，用npm install hexo -g no-optional可以使g和s指令成功运行，但是治标不治本，对deploy指令无效。<br>所以暂时还是只能用windows写blog了泪目。</p>
 <h2 id="2">2</h2><p>去矿大办医保发现可以拍秋景了，算是彻底黄透了。<br>然而我的镜头还没来。</p>
-<h2 id="3">3</h2><p>这两天在效率很低的看JS DOM，今天再不粗略过完一遍就要歹势啦！</p>
+<h2 id="3">3</h2><p>这两天在效率很低的看JS DOM，今天再不提高效率就要歹势啦！</p>
 
       
     </div>
