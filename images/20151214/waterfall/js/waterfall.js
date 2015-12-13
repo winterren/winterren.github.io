@@ -11,36 +11,10 @@ $(document).ready(function(){
 		$(window).resize(function(){
 			locateImg();
 		});
-		// 为滚动绑定事件——判断是否滑到底部
-		// window.onscroll= function(){
-		// 	if(scrollside()){
-		// 		// 如果滑到底部，增加预设图片
-		// 		addImg();
-		// 	}
-		// };	
 	});	
 });
 
-// // 判断是否滑到了最底部
-// function scrollside(){
-// 	var box = $(".box");
-// 	var lastboxHeight = box.last().get(0).offsetTop+Math.floor(box.last().height()/2);
-// 	var documentHeight = document.documentElement.clientHeight;
-// 	var scrollHeight = $(window).scrollTop();
-// 	return (lastboxHeight<=scrollheight+documentheight)?true:false; }="" 在parent底部增加预设数组中的图片="" function="" addimg(){="" var="" htmlarr="['<div" class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/plus01.jpg"></div><!-- 描述 --><div class="pinMeta"><p>This is what I just added</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">Claire Amy</div><div class="creditTitle">Ideas for the House</div></div></div>',
 
-// 	'<div class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/plus02.jpg"></div><!-- 描述 --><div class="pinMeta"><p>This is what I just added</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">Claire Amy</div><div class="creditTitle">Ideas for the House</div></div></div></div>',
-
-// 	'<div class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/plus03.jpg"></div><!-- 描述 --><div class="pinMeta"><p>This is what I just added</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">Claire Amy</div><div class="creditTitle">Ideas for the House</div></div></div></div>',
-
-// 	'<div class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/plus04.jpg"></div><!-- 描述 --><div class="pinMeta"><p>This is what I just added</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">Claire Amy</div><div class="creditTitle">Ideas for the House</div></div></div></div>']
-// 	var parent = $("#parent");
-// 	$(htmlArr).each(function(index,element){
-// 		parent.append(htmlArr[index]);
-// 	})
-// 	// 更新图片定位
-// 	locateImg();
-// }
 function addPic(){
 	addOnePic("001","广州第一天，无限虚焦的越秀公园","Rui","Winterren");	
 	addOnePic("002","广州第二天，和周度来到小蛮腰","Guangzhou Tower","Winterren");
@@ -78,7 +52,6 @@ function addPic(){
 function addOnePic(pic,meta,title,writer){
 	var parent = $("#parent");
 	parent.append('<div class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/'+pic+'.jpg"></div><!-- 描述 --><div class="pinMeta"><p>'+meta+'</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">'+title+'</div><div class="creditTitle">'+writer+'</div></div></div></div>');
-	// locateImg();
 }
 
 // 图片定位函数
@@ -112,4 +85,4 @@ function locateImg(){
 			boxHeightArr[minBoxIndex] += $(this).innerHeight();
 		}
 	})
-}</=scrollheight+documentheight)?true:false;>
+}
