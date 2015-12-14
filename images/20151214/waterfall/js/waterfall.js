@@ -1,57 +1,59 @@
 
-addPic();
-
 // 主函数闭包
 $(document).ready(function(){
     $(window).on("load",function(){
-		
-		// 初始时调用图片定位函数
+    	var arr =  [["001","广州第一天，无限虚焦的越秀公园","Rui","Winterren"],	
+    				["002","广州第二天，和周度来到小蛮腰","Guangzhou Tower","Winterren"],
+    				["003","广州第三天，欧式建筑的沙面","Rui & Winterren","Winterren"],	
+    				["004","广州第三天，欧式建筑的沙面","Rui","Winterren"],	
+    				["006","广州第三天，欧式建筑的沙面","Rui","Winterren"],
+    				["007","广州第三天，欧式建筑的沙面","Winterren & Zhou Du","Rui"],
+    				["008","广州第四天，艺术家的红砖房","Rui & Winterren","Xiao Shanshan"],	
+    				["009","广州第四天，艺术家的红砖房","Rui","Winterren"],	
+    				["010","广州第四天，艺术家的红砖房","Winterren","Rui"],	
+    				["011","广州第四天，艺术家的红砖房","Rui","Winterren"],	
+    				["012","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["013","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["014","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["015","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["016","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["017","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["018","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["019","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["020","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["021","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["022","广州第四天，艺术家的红砖房","Rui","Winterren"],
+    				["023","广州第四天，禁止拍照的书店","Flower","Winterren"],
+    				["024","广州第四天，麦当劳玩玩具","Winterren","Rui"],
+    				["025","广州第四天，麦当劳玩玩具","Rui","Winterren"],
+    				["026","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
+    				["027","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
+    				["028","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
+    				["029","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
+    				["030","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
+    				["031","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"]];
+
+    	var numEachTime = 8;
+    	var numTotal = arr.length;
+    	var loopTotal = Math.ceil(numTotal/numEachTime);
+    	var loopOrder = 0 ;
+
+    	for(var i = loopOrder*numEachTime ; i < loopOrder*numEachTime + numEachTime ; i++){
+    		addOnePic(arr[i][0],arr[i][1],arr[i][2],arr[i][3]);
+    	}
+    	loopOrder ++;
+
+    	window.onscroll= function(){
+
+    		if(scrollside()&&(loopOrder<looptotal)){ for(var="" i="loopOrder*numEachTime" ;="" <="" looporder*numeachtime="" +="" numeachtime="" i++){="" if(arr[i]){addonepic(arr[i][0],arr[i][1],arr[i][2],arr[i][3]);}="" }="" looporder="" ++;="" };="" });="" function="" loc(){="" alert('1');="" 判断是否滑到了最底部="" scrollside(){="" var="" box="$(".box");" lastboxheight="box.last().get(0).offsetTop+Math.floor(box.last().height()/2);" documentheight="document.documentElement.clientHeight;" scrollheight="$(window).scrollTop();" return="" (lastboxheight<="scrollHeight+documentHeight)?true:false;" addonepic(pic,meta,title,writer){="" parent="$("#parent");" parent.append('<div="" class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/'+pic+'.JPG"></div><!-- 描述 --><div class="pinMeta"><p>'+meta+'</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">'+title+'</div><div class="creditTitle">'+writer+'</div></div></div>');
+	var img = $(".pinImg img:last");
+	img[0].onload = function(){
 		locateImg();
-		// 窗口大小改变调用图片定位函数
-		$(window).resize(function(){
-			locateImg();
-		});
-	});	
-});
-
-
-function addPic(){
-	addOnePic("001","广州第一天，无限虚焦的越秀公园","Rui","Winterren");	
-	addOnePic("002","广州第二天，和周度来到小蛮腰","Guangzhou Tower","Winterren");
-	addOnePic("003","广州第三天，欧式建筑的沙面","Rui & Winterren","Winterren");	
-	addOnePic("004","广州第三天，欧式建筑的沙面","Rui","Winterren");	
-	// addOnePic("005","广州第三天，欧式建筑的沙面","Rui","Winterren");
-	addOnePic("006","广州第三天，欧式建筑的沙面","Rui","Winterren");
-	addOnePic("007","广州第三天，欧式建筑的沙面","Winterren & Zhou Du","Rui");
-	addOnePic("008","广州第四天，艺术家的红砖房","Rui & Winterren","Xiao Shanshan");	
-	addOnePic("009","广州第四天，艺术家的红砖房","Rui","Winterren");	
-	addOnePic("010","广州第四天，艺术家的红砖房","Winterren","Rui");	
-	addOnePic("011","广州第四天，艺术家的红砖房","Rui","Winterren");	
-	addOnePic("012","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("013","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("014","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("015","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("016","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("017","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("018","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("019","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("020","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("021","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("022","广州第四天，艺术家的红砖房","Rui","Winterren");
-	addOnePic("023","广州第四天，禁止拍照的书店","Flower","Winterren");
-	addOnePic("024","广州第四天，麦当劳玩玩具","Winterren","Rui");
-	addOnePic("025","广州第四天，麦当劳玩玩具","Rui","Winterren");
-	addOnePic("026","广州第五天，不怎么阳光明媚的南海","Rui","Winterren");
-	addOnePic("027","广州第五天，不怎么阳光明媚的南海","Rui","Winterren");
-	addOnePic("028","广州第五天，不怎么阳光明媚的南海","Rui","Winterren");
-	addOnePic("029","广州第五天，不怎么阳光明媚的南海","Rui","Winterren");
-	addOnePic("030","广州第五天，不怎么阳光明媚的南海","Rui","Winterren");
-	addOnePic("031","广州第五天，不怎么阳光明媚的南海","Rui","Winterren");
-}
-
-function addOnePic(pic,meta,title,writer){
-	var parent = $("#parent");
-	parent.append('<div class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/'+pic+'.JPG"></div><!-- 描述 --><div class="pinMeta"><p>'+meta+'</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">'+title+'</div><div class="creditTitle">'+writer+'</div></div></div></div>');
+	}
+	// img.bind("onload",function(){
+	// 	locateImg();
+	// 	console.log('good')	
+	// })
 }
 
 // 图片定位函数
@@ -85,4 +87,4 @@ function locateImg(){
 			boxHeightArr[minBoxIndex] += $(this).innerHeight();
 		}
 	})
-}
+}</looptotal)){>
