@@ -45,7 +45,35 @@ $(document).ready(function(){
 
     	window.onscroll= function(){
 
-    		if(scrollside()&&(loopOrder<looptotal)){ var="" i="loopOrder*numEachTime;" for(var="" ;="" <="" looporder*numeachtime="" +="" numeachtime="" i++){="" if(arr[i]){addonepic(arr[i][0],arr[i][1],arr[i][2],arr[i][3]);}="" }="" looporder="" ++;="" };="" });="" function="" loc(){="" alert('1');="" 判断是否滑到了最底部="" scrollside(){="" box="$(".box");" lastboxheight="box.last().get(0).offsetTop+Math.floor(box.last().height()/2);" documentheight="document.documentElement.clientHeight;" scrollheight="$(window).scrollTop();" return="" (lastboxheight<="scrollHeight+documentHeight)?true:false;" addonepic(pic,meta,title,writer){="" parent="$("#parent");" parent.append('<div="" class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/'+pic+'.JPG"></div><!-- 描述 --><div class="pinMeta"><p>'+meta+'</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">'+title+'</div><div class="creditTitle">'+writer+'</div></div></div>');
+    		if(scrollside()&&(loopOrder<loopTotal)){
+    			var i = loopOrder*numEachTime;
+    			for(var i = loopOrder*numEachTime ; i < loopOrder*numEachTime + numEachTime ; i++){
+    				if(arr[i]){addOnePic(arr[i][0],arr[i][1],arr[i][2],arr[i][3]);}
+    			}
+    			loopOrder ++;
+
+    		}
+    	};	
+
+
+	});	
+});
+function loc(){
+	alert('1');
+}
+
+// 判断是否滑到了最底部
+function scrollside(){
+	var box = $(".box");
+	var lastboxHeight = box.last().get(0).offsetTop+Math.floor(box.last().height()/2);
+	var documentHeight = document.documentElement.clientHeight;
+	var scrollHeight = $(window).scrollTop();
+	return (lastboxHeight<=scrollHeight+documentHeight)?true:false;
+}
+
+function addOnePic(pic,meta,title,writer){
+	var parent = $("#parent");
+	parent.append('<div class="box"><div class="content"><!-- 图片 --><div class="pinImg"><img src="img/'+pic+'.JPG"></div><!-- 描述 --><div class="pinMeta"><p>'+meta+'</p></div><!-- 作者信息 --><div class="pinCredits"><div class="creditImg"><img src="img/pin.png"></div><div class="creditName">'+title+'</div><div class="creditTitle">'+writer+'</div></div></div></div>');
 	var img = $(".pinImg img:last");
 	img[0].onload = function(){
 		locateImg();
@@ -87,4 +115,4 @@ function locateImg(){
 			boxHeightArr[minBoxIndex] += $(this).innerHeight();
 		}
 	})
-}</looptotal)){>
+}
