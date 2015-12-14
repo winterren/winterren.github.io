@@ -92,13 +92,13 @@ function addOnePic(pic,meta,title,writer){
 function locateImg(){
 	var box = $(".box");
 	var boxWidth = box.eq(0).innerWidth();
-	var fullWidth = document.body.clientWidth;
+	var fullWidth = (document.body.clientWidth< boxWidth)?boxWidth:document.body.clientWidth;
 	var oneLineNum =  Math.floor(fullWidth / boxWidth); //一行有几列
 	var boxHeightArr = []; //空数组用来存放盒子高度
 	// 容器宽度响应
 	var container = $("#container");
 	container.css("width",oneLineNum*boxWidth+"px"); //容器宽度发生变化
-	container.css("min-width",boxWidth+"px"); 
+	
 
 	box.each(function(index,element){
 		var boxHeight = box.eq(index).innerHeight();
