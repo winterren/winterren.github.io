@@ -1,6 +1,10 @@
 //123
 // 主函数闭包
 $(document).ready(function(){
+        // 窗口大小改变调用图片定位函数
+    $(window).resize(function(){
+        locateImg();
+    });
     $(window).on("load",function(){
     	var arr =  [["001","广州第一天，无限虚焦的越秀公园","Rui","Winterren"],	
     				["002","广州第二天，和周度来到小蛮腰","Guangzhou Tower","Winterren"],
