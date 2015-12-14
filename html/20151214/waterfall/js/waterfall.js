@@ -4,7 +4,7 @@ $(document).ready(function(){
     $(window).on("load",function(){
     	var arr =  [["001","广州第一天，无限虚焦的越秀公园","Rui","Winterren"],	
     				["002","广州第二天，和周度来到小蛮腰","Guangzhou Tower","Winterren"],
-    				["003","广州第三天，欧式建筑的沙面","Rui & Winterren","Winterren"],	
+    				["003","广州第三天，欧式建筑的沙面","Rui & Winterren","Zhou Du"],	
     				["004","广州第三天，欧式建筑的沙面","Rui","Winterren"],	
     				["006","广州第三天，欧式建筑的沙面","Rui","Winterren"],
     				["007","广州第三天，欧式建筑的沙面","Winterren & Zhou Du","Rui"],
