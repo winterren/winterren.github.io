@@ -6,36 +6,18 @@ $(document).ready(function(){
         locateImg();
     });
     $(window).on("load",function(){
-    	var arr =  [["001","广州第一天，无限虚焦的越秀公园","Rui","Winterren"],	
-    				["002","广州第二天，和周度来到小蛮腰","Guangzhou Tower","Winterren"],
-    				["003","广州第三天，欧式建筑的沙面","Rui & Winterren","Zhou Du"],	
-    				["004","广州第三天，欧式建筑的沙面","Rui","Winterren"],	
-    				["006","广州第三天，欧式建筑的沙面","Rui","Winterren"],
-    				["007","广州第三天，欧式建筑的沙面","Winterren & Zhou Du","Rui"],
-    				["008","广州第四天，艺术家的红砖房","Rui & Winterren","Xiao Shanshan"],	
-    				["009","广州第四天，艺术家的红砖房","Rui","Winterren"],	
-    				["010","广州第四天，艺术家的红砖房","Winterren","Rui"],	
-    				["011","广州第四天，艺术家的红砖房","Rui","Winterren"],	
-    				["012","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["013","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["014","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["015","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["016","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["017","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["018","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["019","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["020","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["021","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["022","广州第四天，艺术家的红砖房","Rui","Winterren"],
-    				["023","广州第四天，禁止拍照的书店","Flower","Winterren"],
-    				["024","广州第四天，麦当劳玩玩具","Winterren","Rui"],
-    				["025","广州第四天，麦当劳玩玩具","Rui","Winterren"],
-    				["026","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
-    				["027","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
-    				["028","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
-    				["029","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
-    				["030","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"],
-    				["031","广州第五天，不怎么阳光明媚的南海","Rui","Winterren"]];
+    	var arr =  [["001","云龙湖","201512","Winterren"],	
+    				["002","云龙湖","201512","Winterren"],
+                    ["003","云龙湖","201512","Winterren"],
+                    ["004","矿大南湖","201511","Winterren"],
+                    ["005","矿大南湖","201511","Winterren"],
+                    ["006","矿大南湖","201511","Winterren"],
+                    ["007","矿大南湖","201511","Winterren"],
+                    ["008","淮塔","201512","Winterren"],
+                    ["009","淮塔","201512","Winterren"],
+                    ["010","淮塔","201512","Winterren"],
+                    ["011","淮塔","201512","Winterren"]
+    				];
 
     	var numEachTime = 8;
     	var numTotal = arr.length;
