@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>main内添加div来margin</title>
+	<style>
+	.main {        
+		background: yellow;
+		float: left;       
+		width: 100%; 
+	 }  
+	 .main-content{
+		margin-left: 190px;
+		margin-right:230px;
+	 }
+	.sub {       
+		background: orange;
+		float: left;        
+		width: 190px;        
+		margin-left: -100%; 
+
+	}   
+	.extra {     
+		background: green;   
+		float: left;        
+		width: 230px;        
+		margin-left: -230px;   
+	 }
+	</style>
+</head>
+<body>
+	<div id="page">    
+      <div id="hd"></div>    
+              <div class="main">
+              		<div class="main-content">mainmainmain</div>
+              </div>        
+              <div class="sub">leftleftleft</div>        
+              <div class="extra">rightright</div>    
+      <div id="ft"></div>
+</div>
+</body>
+</html>

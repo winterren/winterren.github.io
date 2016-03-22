@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task6</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+		list-style: none;
+	}
+	.container{
+		margin: 0 auto;
+		padding: 0 44px;
+		width: 892px;
+		height: 1386px;
+	}
+	header{
+		height: 61px;
+		border-bottom: 2px solid #938e8c;
+		margin-bottom: 30px;
+	}
+	.topleft{
+		background: #d45d5c;
+		font-size: 12px;
+		color: #FFF;
+		height: 61px;
+		width: 110px;
+		float: left;
+	}
+	.topleft p{
+		margin: 42px 0 0 10px;
+	}
+	.topright{
+		color: #d45d5c;
+		font-size: 12px;
+		float: right;
+		height: 61px;
+
+	}
+	.topright p{
+		margin-top: 42px;
+	}
+
+	.row-1-top{
+		width: 641px;
+		height: 301px;
+		background: url(img/topleft.jpg);
+	}
+	.row-1-top>div:first-child{
+		background: rgba(65,140,88,0.5);
+		width:192px;
+		height: 301px;
+		float: left;
+	}
+	.row-1-top>div:last-child{
+		background: rgba(204,118,129,0.5);
+		width:192px;
+		height: 301px;
+		float: right;
+	}
+	.row-1-text{
+		margin-top: 40px;
+		height: 170px;
+
+	}
+	.row-1-text>div{
+		vertical-align: top;
+		width: 192px;
+		margin-right: 20px;
+		display: inline-block;
+		height: 170px;
+	}
+	.row-1-text p,li{
+		font-size: 12px;
+		font-family: "Microsoft Yahei";
+		line-height: 16px;
+		opacity: 70%;
+		color: #231815;
+	}
+	.row-1-text h4{
+		font-size: 16px;
+		font-family: "Microsoft Yahei";
+		font-weight: bold;
+		text-decoration: underline;
+		margin-bottom: 10px;
+	}
+	.row-1-col-1 h4{
+		color:#418c59;
+	}
+	.row-1-col-2 h4{
+		color:#d2994f;
+	}
+	.row-1-col-3 h4{
+		color:#cc7680;
+	}
+	.row-1-col-3 li{
+		margin: 6px;
+	}
+	.row-1-col-3 span{
+		font-size: 12px;
+		font-family: "Microsoft Yahei";
+		line-height: 16px;
+		opacity: 70%;
+		color: #cd4a48;
+	}
+
+	.row-1-right{
+		width: 203px;
+		float: right;
+		border-top: 2px solid #cc8091;
+	}
+	.row-1-right p:nth-child(-n+2){
+		font-size: 24px;
+		color: #000;
+		font-family: "Microsoft Yahei";
+		text-decoration: underline;
+		line-height: 40px;
+	}
+	.row-1-right p:nth-child(-n+2):first-letter{
+		font-size: 30px;
+	}
+	.row-1-right:after{
+		content: '';
+		height: 0;
+		clear: both;
+	}
+	.row-1-right p:nth-child(3){
+		font-size: 12px;
+		color: #676767;
+		font-family: "KaiTi";
+		line-height: 10px;
+	}
+	.row-1-right p:nth-child(4){
+		font-size: 116px;
+		color: #75b86b;
+		font-family: "Microsoft Yahei";
+		margin-top: 40px;
+		font-style: italic;
+	}
+	.row-1-right p:nth-child(5){
+		display: inline-block;
+		font-size: 55px;
+		color: #cc8091;
+		font-family: "Microsoft Yahei";
+	}
+	.row-1-right p:nth-child(6){
+		display: inline-block;
+	}
+	.row-1-right p:nth-child(6) span:nth-child(1){
+		font-size: 21px;
+		color: #cc8091;
+		font-family: "Microsoft Yahei";
+	}
+	.row-1-right p:nth-child(6) span:nth-child(2){
+		font-size: 12px;
+		color: #b5b5b6;
+		font-family: "Microsoft Yahei";
+	}
+
+	/*第二行*/
+	.row-2{
+		margin-top: 60px;
+		height: 610px;
+		width: 892px;
+	}
+	.row-2-left{
+		width: 415px;
+		float: left;
+	}
+	.row-2-left-title {
+		border-bottom: 2px solid #11456b;
+		margin-bottom: 20px;
+	}
+	.row-2-left-title p{
+		color: #11456b;
+		font-size: 42px;
+		font-weight: bold;
+		font-family: "HeiTi";
+		margin-bottom: 16px;
+		
+	}
+	.row-2-left-title p span{
+		font-size: 72px;
+		color: #f5e327;
+		font-style: italic;
+	}
+
+	.row-2-left-text{
+		float: left;
+		font-size: 12px;
+		color: #767777;
+		font-family: "SongTi";
+		line-height: 16px;
+	}
+
+	.row-2-left-text:first-letter{
+		color:#f5e327;
+		font-size: 70px;
+		font-family: "Microsoft Yahei";
+		float: left;
+		line-height: 70px;
+	}
+
+	.row-2-left-text p:nth-child(n+2){
+		text-indent: 2em;
+	}
+
+	.row-2-left-text img{
+		float: right;
+		margin: 10px;
+	}
+	
+
+
+	.row-2-right{
+		width: 458px;
+		float: right;
+	}
+
+	.row-2-right-img{
+		width: 458px;
+		height: 260px;
+		background: url(img/right.jpg);
+		position: relative;
+	}
+
+	.mask{
+		box-sizing:border-box;
+		padding:15px 4px 0 25px;
+		position: absolute;
+		bottom: 0;
+		height: 61px;
+		width: 458px;
+		background:rgba(4,0,0,0.4);
+	}
+	.mask span:first-child{
+		border-left: 3px solid #72b16a;
+		padding-left: 10px;
+		font-size: 26px;
+		font-family: "Microsoft Yahei";
+		color: #FFF;
+	}
+	.mask span:last-child{
+		font-size: 12px;
+		font-family: "Microsoft Yahei";
+		letter-spacing: 1.4;
+		color: #72b16a;
+		font-style: italic;
+		margin-left: 10px;
+	}
+
+	/*右侧第二行*/
+	.row-2-right-text{
+		width: 459px;
+		height: 318px;
+		background: #eeedd6;
+		margin-top: 30px;
+	}
+
+	.row-2-right:after{
+		content: '';
+		height: 0;
+		clear: both;
+	}
+	.row-2-right-text{
+		position: relative;
+	}
+	.row-2-right-text ul{
+		padding: 30px 30px 10px 30px;
+
+
+	}
+	.row-2-right-text ul li{
+		font-size: 16px;
+		margin-bottom: 20px;
+		font-family: "SongTi";
+	}
+	.row-2-right-text ul li span{
+		font-size: 12px;
+		font-style: italic;
+	}
+	.row-2-right-text ul li:before{
+		content: '▲';
+		margin-right: 6px;
+	}
+	/*左右混排*/
+	.row-2-right-left{
+		position: absolute;
+		bottom: 0;
+		width: 259px;
+		background: #d45d5c;
+		height: 160px;
+		padding: 30px 8px;
+		box-sizing:border-box;
+	}
+	.row-2-right-left span{
+		margin-right: 6px;
+		font-size: 110px;
+		font-family: "Microsoft Yahei";
+		color: #FFF;
+		border-right: 2px solid #fff;
+		float: left;
+		padding-right: 6px;
+	}
+	.row-2-right-left p{
+		line-height: 1.5;
+		color: #FFF;
+		font-family: "HeiTi";
+		font-size: 21px;
+		font-style: italic;
+	}
+	.row-2-right-left p:last-child{
+		color: #FFF;
+		font-family: "HeiTi";
+		font-size: 12px;
+		font-style: normal;
+	}
+	.row-2-right-right{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 200px;
+		height: 160px;
+		padding: 22px 12px;
+		box-sizing:border-box;
+	}
+	em{
+		font-size: 72px;
+		color: #d45d5c;
+		font-family: 'HeiTi';
+		font-style: normal;
+		position: absolute;
+		font-weight: bold;
+	}
+	em:first-child{
+		left: -18px;
+		top:3px;
+	}
+	em:last-child{
+		right: 0px;
+		bottom: -33px;
+	}
+
+	.row-2-right-right p{
+		text-indent: 3em;
+		font-style: italic;
+		font-size: 14px;
+		font-family: 'HeiTi';
+		color: #5a5b5b;
+		line-height: 16px;
+	}
+
+	/*尾部*/
+	footer{
+		margin-top: 40px;
+		width: 100%;
+		border-top: 1px solid #938e8c;
+	}
+
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<div class="topleft">
+				<p>ife.baidu.com</p>
+			</div>
+			<div class="topright">
+				<p>2016.03</p>
+			</div>
+		</header>
+
+		<article>
+
+			<div class="row-1-right">
+				<p>ABOUT</p>
+				<p>TECHNOLOGE</p>
+				<p>About technology About technology About technology</p>
+				<p>700</p>
+				<p>
+					<span>3.2</span>
+				</p>
+				<p>
+					<span>css</span>
+					<br>
+					<span>csscsscss</span>
+				</p>
+			</div>
+
+
+			<div class="row-1-top">
+				<div></div>
+				<div></div>
+			</div>
+			<div class="row-1-text">
+				<div class="row-1-col-1">
+					<h4>What</h4>
+					<p>前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段</p>
+				</div><!--
+				--><div class="row-1-col-2">
+					<h4>When</h4>
+					<p>前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段前段</p>
+				</div><!--
+				--><div class="row-1-col-3">
+					<h4>How</h4>
+					<p>前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+					<ul>
+						<li>What---------<span class="red">40%</span></li>
+						<li>What---------<span class="red">40%</span></li>
+						<li>What---------<span class="red">40%</span></li>
+					</ul>
+				</div>
+				
+			</div>
+			
+			<!-- 第二排 -->
+			<div class="row-2">
+				<!-- 第二排左侧 -->
+				<div class="row-2-left">
+					<div class="row-2-left-title">
+						<p>
+							<span>THE</span>
+							TECHNOLOGE OF FRONT
+						</p>
+						<p>前端技术领域</p>
+						
+					</div>
+
+					<div class="row-2-left-text">
+						<p>前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前
+							<img src="img/left.jpg" alt="">
+						端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端</p>
+						<p>前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前</p>
+					</div>
+				</div>
+				
+				<!-- 第二排右侧 -->
+				<div class="row-2-right">
+					<div class="row-2-right-img">
+						<div class="mask">
+							<span>前端技术</span><span>前段技术前段技术</span>
+						</div>
+					</div>
+					<div class="row-2-right-text">
+						<ul>
+							<li>前端前段前端前段前端前段 . . . . . . . . . . . . . . . . . <span>前端</span></li>
+							<li>前端前段前端前段前端前段前段 . . . . . . . . . . . . . <span>前端</span></li>
+							<li>前端前段前端前段前端前段前段前段前段 . . . . .  <span>前端</span></li>
+						</ul>
+						<div class="row-2-right-left">
+							<span>0</span>
+							<p>ONE TWO THREE FORE FIVE</p>
+							<p>hello world hello world hello world</p>
+						</div>
+						<div class="row-2-right-right">
+							<em>“</em>
+							<p>world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world</p>
+							<em>”</em>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+		</article>
+		<footer></footer>
+	</div>
+</body>
+</html>

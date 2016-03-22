@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏外添加div来padding</title>
+	<style>
+
+	#bd{
+		padding: 0 230px 0 190px;
+	}
+	.main {        
+		background: yellow;
+		float: left;       
+		width: 100%; 
+	 }  
+	.sub {       
+		background: orange;
+		float: left;        
+		width: 190px;        
+		margin-left: -100%; 
+		position: relative;
+		left: -190px;
+
+	}   
+	.extra {     
+		background: green;   
+		float: left;        
+		width: 230px;        
+		margin-left: -230px;   
+		position: relative;
+		left:230px;
+	 }
+	</style>
+</head>
+<body>
+	<div id="page">    
+      <div id="hd"></div>  
+      	<div id="bd"> 
+              <div class="main">mainmainmain</div>        
+              <div class="sub">leftleftleft</div>        
+              <div class="extra">rightright</div>  
+        </div>   
+      <div id="ft"></div>
+</div>
+</body>
+</html>
