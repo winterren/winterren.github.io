@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task12</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.ranktable{
+		border: 0;
+	}
+	.ranktable th, .ranktable td{
+		padding: 5px;
+	}
+	.ranktable th{
+		background: #333;
+		color:#fff;
+	}
+	.ranktable tr:nth-child(odd){
+		background: #ccc;
+	}
+	.ranktable tr:nth-child(-n+4) td{
+		color: red;
+	}
+
+	.focusinput{
+		width: 200px;
+		transition: all 1s linear;
+	}
+	.focusinput:focus{
+		width: 500px;
+	}
+
+	/*3*/
+	#slideshow{
+		height: 200px;
+		width: 350px;
+		overflow: hidden;
+		position: relative;
+	}
+	#slideshow ul,li{
+		list-style: none;
+	}
+	#slideimg{
+		height: 200px;
+		width: 1050px;
+		position: absolute;
+		left: 0;
+		transition: all 0.5s linear;
+	}
+	#slideimg li{
+		display: inline-block;
+		width: 350px;
+		height: 200px;
+	}
+	#slideimg li:nth-child(1){
+		background: red;
+	}
+	#slideimg li:nth-child(2){
+		background: orange;
+	}
+	#slideimg li:nth-child(3){
+		background: blue;
+	}
+	#slide1:target~#slideimg{
+		left:0;
+	}
+	#slide2:target~#slideimg{
+		left:-100%;
+	}
+	#slide3:target~#slideimg{
+		left:-200%;
+	}
+
+	#slidetext{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+	#slidetext li{
+		position: relative;
+		width: 20px;
+		height: 20px;
+		background: rgba(255,255,255,0.5);
+		text-align: center;
+		display: inline-block;
+	}
+	#slidetext li a{
+		color: #bbb;
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+	<table class="ranktable">
+		<tr>
+			<th>排名</th>
+			<th>网站</th>
+			<th>热度</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>百度前端技术学院</td>
+			<td>13000</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>百度前端技术学院</td>
+			<td>12000</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>百度前端技术学院</td>
+			<td>11000</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>百度前端技术学院</td>
+			<td>10000</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>百度前端技术学院</td>
+			<td>9000</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>百度前端技术学院</td>
+			<td>8000</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>百度前端技术学院</td>
+			<td>7000</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>百度前端技术学院</td>
+			<td>5000</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>百度前端技术学院</td>
+			<td>4000</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>百度前端技术学院</td>
+			<td>3000</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>百度前端技术学院</td>
+			<td>2000</td>
+		</tr>
+	</table>
+	<br>
+	<input type="text" class="focusinput" placeholder="focus here to expand">
+	<br>
+	<div id="slideshow">
+		<span id="slide1"></span>
+		<span id="slide2"></span>
+		<span id="slide3"></span>
+		<ul id="slideimg">
+			<li></li><li></li><li></li>
+		</ul>
+		<ul id="slidetext">
+			<li><a href="#slide1">1</a></li>
+			<li><a href="#slide2">2</a></li>
+			<li><a href="#slide3">3</a></li>
+		</ul>
+	</div>
+</body>
+</html>

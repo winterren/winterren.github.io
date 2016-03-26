@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>IFE - Winterren</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+		line-height: 1.5;
+		font-family: "Microsoft Yahei";
+	}
+	a{
+		color: #2d79b9;
+	}
+	body{
+		min-width: 850px;
+		background: #ddd;
+	}
+	/*头部*/
+	header{
+		height: 60px;
+		background: #2d79b9;
+		padding: 10px 30px;
+	}
+	header ul{
+		list-style: none;
+		float: right;
+	}
+	header ul li{
+		line-height: 60px;
+		display: inline-block;
+	}
+	header ul li:nth-child(even) a{
+		color: #efe;
+	}
+	header ul li:nth-child(odd) a{
+		color: #cec;
+	}
+	header:after{
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	/*正文*/
+	section, aside{
+		margin: 20px ;
+		padding: 20px;
+		border: 1px solid #bbb;
+		background: #efefef;
+		box-shadow: 2px 2px #bbb;
+	}
+
+	h1{
+		font-size: 25px;
+		line-height: 2;
+	}
+	h2{
+		font-size: 22px;
+		line-height: 2;
+		color: #444;
+	}
+	.inf{
+		font-size: 10px;
+		line-height: 2;
+		margin-bottom: 5px;
+		color:#666;
+	}
+	.withindex{
+		text-indent: 2em;
+	}
+	p a{
+		color:#2d79b9;
+	}
+
+	/*另一篇文章*/
+
+	#article2 ul{
+		margin-left: 20px;
+		list-style: none;
+	}
+
+	/*图片*/
+	section dl{
+		width: 90px;
+		margin: 10px;
+		border: 1px solid #ccc;
+		box-shadow: 2px 2px #ccc;
+		padding: 10px;
+		display: inline-block;
+	}
+	section dl dd:first-child{
+		margin-bottom: 5px;
+		font-weight: bold;
+		padding-left: 5px;
+		margin-left: 5px;
+		border-left: 5px solid #2d79b9;
+	}
+	section img{
+		height: 50px;
+	}
+
+	/*最后一篇文章*/
+	#article4 ol{
+		margin-left: 2em;
+	}
+	#article4 ol li{
+		line-height: 3;
+	}
+	#article4 table{
+		width: 100%;
+	}
+	#article4 table{
+		border-collapse: collapse;
+		border: 1px solid #aaa;
+		
+	}
+	#article4 table th,td{
+		padding: 5px;
+	}
+	#article4 table th{
+		background: #333;
+		color: #fff;
+		text-align: left;
+	}
+	#article4 table tr:nth-child(even){
+		background: #fff;
+	}
+	#article4 table tr:nth-child(odd){
+		background: #ccc;
+	}
+	#article4 table tr:last-child{
+		background: #aaa;
+	}
+
+	article{
+		margin-right: 420px;
+	}
+
+	/*侧栏*/
+	aside{
+		width: 360px;
+		float: right;
+
+	}
+	aside h2{
+		padding-left: 15px;
+		border-left: 45px solid #2d79b9;
+		margin-bottom: 15px;
+	}
+	aside table{
+		width: 100%;
+		font-size: 13px;
+	}
+	aside table, td{
+		border: 0;
+	}
+	aside tr td:first-child{
+		text-align: right;
+	}
+	aside tr .notice{
+		font-size: 12px;
+		color: #bbb;
+	}
+	aside input[type="button"]{
+		height: 35px;
+		width: 100%;
+		color: #FFF;
+		border: 0;
+		border-radius: 5px;
+		background: #314FCE;
+	}
+	aside input[type="button"]:hover{
+		background: #324FDF;
+		cursor: pointer;
+	}
+
+	/*尾部*/
+	footer{
+		height: 70px;
+		background: #101010;
+		color: #fff;
+		font-size: 12px;
+		line-height: 70px;
+		text-align: center;
+		vertical-align: middle;
+	}
+	</style>
+</head>
+<body>
+	<!-- 头部 -->
+	<header>
+		<img src="task05/img/logo.png" height="60px">
+		<ul>
+			<li>
+				<a href="https://github.com/winterren/" target="_blank">W's github</a>
+			</li>
+			<li>
+				<a href="https://github.com/TomIsion" target="_blank">T's github</a>
+			</li>
+			<li>
+				<a href="https://github.com/zzk123" target="_blank">K's github</a>
+			</li>
+		</ul>
+	</header>
+
+	<!-- 侧栏 -->
+	<aside>
+		<h2>作者信息</h2>
+		<p>KTW小组组员：W</p>
+		
+	</aside>
+
+	
+	<!-- 正文 -->
+	<article>
+
+
+		
+		<section>
+			<h1>Part1 HTML/CSS</h1>
+			<!-- task -->
+			<dl>
+				<dd>Task01</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task01">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task01/">Demo</a>
+				</dd>
+			</dl>
+			<!-- task -->
+			<dl>
+				<dd>Task02</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task02">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task02/">Demo</a>
+				</dd>
+			</dl>
+			<!-- task -->
+			<dl>
+				<dd>Task03</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task03">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task03/">Demo</a>
+				</dd>
+			</dl>
+			<!-- task -->
+			<dl>
+				<dd>Task04</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task04">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task04/">Demo</a>
+				</dd>
+			</dl>
+			<!-- task -->
+			<dl>
+				<dd>Task05</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task05">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task05/">Demo</a>
+				</dd>
+			</dl>
+			<!-- task -->
+			<dl>
+				<dd>Task06</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task06">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task06/">Demo</a>
+				</dd>
+			</dl>
+			<!-- task -->
+			<dl>
+				<dd>Task12</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task12">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task12/">Demo</a>
+				</dd>
+			</dl>
+
+		</section>
+
+		<section>
+			<h1>Part2 JavaScript</h1>
+			<!-- task -->
+			<dl>
+				<dd>Task13</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task13">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task13/">Demo</a>
+				</dd>
+			</dl>
+			<dl>
+				<dd>Task14</dd>
+				<dd>
+					<a href="https://github.com/winterren/ife-2016-spring/tree/master/task14">Source</a>
+				</dd>
+				<dd>
+					<a href="http://winterren.github.io/html/ife/task14/">Demo</a>
+				</dd>
+			</dl>
+		</section>
+		
+
+
+
+	</article>
+	
+	<!-- 尾部 -->
+	<footer>
+		版权所有©
+	</footer>
+	
+</body>
+</html>
