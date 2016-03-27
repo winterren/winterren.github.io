@@ -72,6 +72,7 @@ function sortAqiData(data) {
 	data.sort(function(a,b){
 		return a[1]-b[1];
 	})
+  return data;
 }
 
 /**
@@ -94,9 +95,11 @@ function render(data) {
 
 function btnHandle() {
   var aqiData = getData();
+  
   aqiData = sortAqiData(aqiData);
+  
   render(aqiData);
-  console.log('1');
+  
 }
 
 
