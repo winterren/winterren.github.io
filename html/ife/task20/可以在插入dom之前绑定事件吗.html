@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+<script>
+	div1=document.getElementById('div1');
+	text1=document.createTextNode('textatex');
+	p1=document.createElement('p');
+	p1.addEventListener('click',function(){
+		alert('2');
+	})
+	p1.appendChild(text1);
+	div1.appendChild(p1);
+	// document.getElementsByTagName('p')[0].addEventListener('click',function(){
+	// 	alert('1');
+	// })
+</script>
+</html>
