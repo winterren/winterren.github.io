@@ -101,11 +101,11 @@
 	// 在某格子中显示活动格子
 	Node.prototype.appear = function(directionNum){
 		temp = document.createElement('div');
-		temp.className = "active";
+		// temp.className = "active";
 		temp.style.transform = "rotate(-"+directionNum*90+"deg)";
 		this.orideg = -directionNum*90;
 		// 为什么下面这句会抱错？？？？
-		// temp.setAtrribute("class","active");
+		temp.setAttribute("class","active");
 		this.dom.appendChild(temp);
 	}
 	// 在某格子中取消显示活动格子
