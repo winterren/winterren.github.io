@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>task22</title>
+	<style>
+	#container{
+		border: 0;
+	}
+	div{
+		display: flex;
+		border: 1px solid #444;
+		padding: 20px;
+		margin:5px;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="root1"></div>
+	</div>
+	
+</body>
+<script>
+	// 创建根节点对象
+	function RootNode(domid){
+		this.dom = document.getElementById(domid);
+	}
+	// 创建树叶节点对象
+	function TreeNode(parenttreenode, leftorright){
+		// 找到父节点
+		this.parenttreenode = parenttreenode;
+		this.leftorright = leftorright;
+		tempNode = document.createElement('div');
+		// 将父节点的左/右孩子链接到本节点
+		if(leftorright == "left"){
+			this.parenttreenode.leftchild = this; 
+			this.parenttreenode.dom.insertBefore(tempNode, this.parenttreenode.dom.lastChild);
+			this.dom = this.parenttreenode.dom.firstChild;
+		}
+		if(leftorright == "right"){
+			this.parenttreenode.rightchild = this;
+			this.parenttreenode.dom.appendChild(tempNode);
+			this.dom = this.parenttreenode.dom.lastChild;
+		}
+	}
+	// TreeNode.prototype = {
+	// 	constructor: TreeNode
+	// }
+
+
+	var rootnode = new RootNode("root1");
+	var treenode1 = new TreeNode(rootnode,"left");
+	var treenode2 = new TreeNode(treenode1,"left");
+	var treenode3 = new TreeNode(treenode1,"right");
+	var treenode4 = new TreeNode(treenode2,"left");
+
+
+	function create_tree(count,treenode){
+		var arr = [treenode];
+		for(var i = 0; i < count; i++){
+			for(key in arr){
+				treenode[i]['left'] = new TreeNode(arr[key],'left');
+				treenode[i]['right'] = new TreeNode(arr[key],'right');
+			}
+		}
+	}
+
+</script>
+</html>

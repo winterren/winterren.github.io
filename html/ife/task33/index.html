@@ -29,8 +29,31 @@
 	.active{
 		height: 100%;
 		width: 100%;
-		background: red;
-		border-top:15px solid blue;
+		background: #00aaaa;
+		border-top:15px solid #bb66bb;
+	}
+	.opratepart{
+		padding: 20px 50px;
+	}
+	input{
+		box-sizing:border-box;
+		border:  2px solid #aaa;
+		background: #fff;
+		border-radius: 5px;
+		color: #aaa;
+		height: 50px;
+	}
+	input[type="button"]{
+		width: 80px;
+		margin-bottom: 20px;
+	}
+	input[type="button"]:hover{
+		cursor: pointer;
+	}
+	input[value="go"], input[value="confirm"]{
+		color: #00aaaa;
+		border:  2px solid #00aaaa;
+		background: #f0ffff;
 	}
 
 	</style>
@@ -82,10 +105,16 @@
 			<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
 		</tr>
 	</table>
-	<input type="button" value="go">
-	<input type="button" value="left">
-	<input type="button" value="right">
-	<input type="button" value="back">
+	<div class="opratepart">
+		<input type="button" value="go">
+		<input type="button" value="left">
+		<input type="button" value="right">
+		<input type="button" value="back">
+		<br>
+		<input type="text" >
+		<input type="button" value="confirm">
+	</div>
+
 
 
 	<script>
@@ -101,11 +130,9 @@
 	// 在某格子中显示活动格子
 	Node.prototype.appear = function(directionNum){
 		temp = document.createElement('div');
-		temp.className = "active";
+		temp.setAttribute("class","active");
 		temp.style.transform = "rotate(-"+directionNum*90+"deg)";
 		this.orideg = -directionNum*90;
-		// 为什么下面这句会抱错？？？？
-		// temp.setAtrribute("class","active");
 		this.dom.appendChild(temp);
 	}
 	// 在某格子中取消显示活动格子
@@ -202,6 +229,19 @@
 			})
 		})(i);
 	}
+	// 为文字输入框绑定事件
+	btns[5].addEventListener('click',function(){
+		var textorder = btns[4].value;
+		// 模糊两边空格
+		textorder = textorder.trim();
+		// 模糊大小写
+		textorder = textorder.toLowerCase();
+		if (textorder == "tun lef"){activenode.move("left");}
+		else if (textorder == "tun rig"){activenode.move("right");}
+		else if (textorder == "tun bac"){activenode.move("back");}
+		else if (textorder == "go"){activenode.move("go");}
+		else {alert("指令错误！\rGO：向蓝色边所面向的方向前进一格\rTUN LEF：向左转\rTUN RIG：向右转\rTUN BAC：向右转");}
+	})
 	</script>
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task20</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "Microsoft Yahei";
+		color: #444;
+		font-size: 20px;
+	}
+	form{
+		padding: 5px;
+	}
+	input, textarea{
+		vertical-align: top;
+		padding: 2px;
+		border: 2px solid #444;
+		height: 30px;
+		box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		font-size: 15px;
+	}
+
+	ul,li{
+		list-style: none;
+	}
+	li{
+		display: inline-block;
+		padding: 5px;
+		margin: 5px;
+		background: #ccc;
+		border: 2px solid #444;
+	}
+	li:hover{
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<form>
+		<!-- tags部分 -->
+		<label for="tags_text">Tags</label>
+		<br>
+		<input id="tags_text" value="蛤蛤 华莱士，搞个大新闻、   拿衣服">
+		<input type="button" id="tags_btn" value="确认">
+		<ul id="tags_output"></ul>
+		<br>
+	</form>
+	<form>
+		<!-- interest部分 -->
+		<label for="interest_text">Interests</label>
+		<br>
+		<textarea id="interests_text">蛤蛤 华莱士，搞个大新闻、   拿衣服</textarea>
+		<input type="button" id="interests_btn" value="确认">
+		<ul id="interests_output"></ul>
+	</form>
+		var operationarea = {
+			getElements = function(str){}
+		}
+	<script>
+	
+	</script>
+</body>
+</html>

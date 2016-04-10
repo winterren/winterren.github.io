@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>oo</title>
+</head>
+<body>
+	<script>
+	var book = {
+		_year :2004
+	}
+	Object.defineProperty(book, "year",{
+		get:function(){
+			return this._year+100;
+		},
+		set:function(newValue){
+			this._year = newValue +10
+		}
+	})
+	</script>
+</body>
+</html>
