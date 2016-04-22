@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>MoneyMan</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing:border-box;
+	}
+	#status{
+		position: absolute;
+		top:50px;
+	}
+	.replay{
+		width: 200px;
+		height: 100px;
+		background: rgb(150,230,150);
+		border: #fff solid 2px;
+		border-radius: 6px;
+		color: #fff;
+		font-size: 30px;
+	}
+
+	</style>
+</head>
+<body>
+	<div id="status">
+		<input type="button" class="replay" value="再来一局">
+	</div>
+	
+	<script>
+
+	// 获取屏幕宽高
+	screenWidth =  window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
+	screenHeight = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+	// 创建canvas
+	var canvas = document.createElement("canvas");
+	var ctx = canvas.getContext("2d");
+	canvas.width = screenWidth;
+	canvas.height = screenHeight;
+	document.body.appendChild(canvas);
+
+	// gstatus=1运行游戏，=2结束游戏
+	var gstatus = 1;
+	var gtime = 0;
+	var gwins = 0;
+	var gtimedefault = 10;
+	var moneyarr = new Array(6);
+	var bombarr = new Array(4);
+	var divStatus = document.getElementById('status');
+	var eleReplay = document.getElementsByClassName('replay')
+	divStatus.style.display = "none";
+	divStatus.style.left = canvas.width / 2 - 100 + "px";
+
+	// 读取图片
+	var heroReady = false;
+	var heroImage = new Image();
+	heroImage.onload = function () {
+	    heroReady = true;
+	};
+	heroImage.src = "imgs/pic_37_46.png";
+
+	var moneyReady = false;
+	var moneyImage = new Image();
+	moneyImage.onload = function () {
+	    moneyReady = true;
+	};
+	moneyImage.src = "imgs/pic_23_41.png";
+
+	var bombReady = false;
+	var bombImage = new Image();
+	bombImage.onload = function () {
+	    bombReady = true;
+	};
+	bombImage.src = "imgs/pic_35_23.png";
+
+	// 游戏对象
+	var hero = {
+		speed:5,
+		x:0,
+		y:0,
+		width:37,
+		height:46
+	}
+	// 游戏类
+	// 父类：掉落物
+	function drop(){
+		this.x = 0;
+		this.y = 0;
+		this.width = 50;
+		this.height = 50;
+		this.speed = 10;
+	}
+	drop.prototype.init = function(e){
+		this.y = 0 - canvas.height * 3 * Math.random();
+		this.x = (canvas.width-this.width) * Math.random();
+	}
+	drop.prototype.collision = function(hero){
+		if( (this.y >= hero.y - this.height) &&
+			(hero.x >= this.x - hero.width) &&
+			(hero.x <= this.x + this.width)){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+	// 钱
+	function money(){
+		// 继承父类属性
+		drop.call(this);
+		this.width = 23;
+		this.height = 41;
+	}
+	// 继承父类方法
+	money.prototype = new drop();
+	money.prototype.constructor = money;
+
+	// 炸弹
+	function bomb(){
+		// 继承父类
+		drop.call(this);
+		this.width = 35;
+		this.height = 23;
+	}
+	bomb.prototype = new drop();
+	bomb.prototype.constructor = bomb;
+
+	// 处理按键
+	var keysDown = {};
+
+	document.addEventListener("keydown", function (e) {
+	    keysDown[e.keyCode] = true;
+	}, false);
+
+	document.addEventListener("keyup", function (e) {
+	    delete keysDown[e.keyCode];
+	}, false);
+
+	//处理touch事件
+	document.addEventListener('touchstart',touch, false);
+	document.addEventListener('touchmove',touch, false);
+	document.addEventListener('touchend',touch, false);
+	 
+    function touch (event){
+        var event = event || window.event;
+        var xnow = event.changedTouches[0].clientX;
+        switch(event.type){
+            case "touchstart":
+
+            case "touchend":
+
+            case "touchmove":
+                event.preventDefault();
+                if (xnow <= 0){
+                	hero.x = 0
+                }else if(xnow >= canvas.width-hero.width){
+                	hero.x = canvas.width-hero.width
+                }else{
+                	hero.x = xnow - hero.width/2;
+                }
+                break;
+        }
+         
+    }
+
+    // 处理replay按键
+    eleReplay[0].addEventListener('click',function(){
+    	reset();
+    });
+    eleReplay[0].addEventListener('touchend',function(){
+    	reset();
+    });
+
+	// 更新，包括判断碰撞
+	var update = function(modifier){
+		if (gtime<=0){
+			divStatus.style.display = "block";
+			gstatus = 2;
+			return 0;
+		}
+		if (37 in keysDown){
+			hero.x = (hero.x <= ( hero.speed))?0:(hero.x - hero.speed);
+		}
+		if (39 in keysDown){
+			hero.x = (hero.x >= (canvas.width - hero.width - hero.speed))?(canvas.width - hero.width):(hero.x + hero.speed);
+		}
+		for (var i=0;i<moneyarr.length;i++){
+			if (moneyarr[i].collision(hero)){
+				moneyarr[i].init();
+				// 计分
+				gwins+=100;
+			}else if(moneyarr[i].y >= canvas.height){
+				moneyarr[i].init();
+			}else{
+				moneyarr[i].y += moneyarr[i].speed;
+			}
+		}
+		for (var i=0;i<bombarr.length;i++){
+			if (bombarr[i].collision(hero)){
+				bombarr[i].init();
+				// 计分
+				gwins-=100;
+			}else if(bombarr[i].y >= canvas.height){
+				bombarr[i].init();
+			}else{
+				bombarr[i].y += bombarr[i].speed;
+			}
+		}
+	}
+
+	// 渲染物体
+	var render = function(){
+
+		// 绘制背景颜色
+		ctx.fillStyle = "rgb(135,130,200)";
+		ctx.fillRect(0,0,canvas.width,canvas.height);
+		// 绘制记分板
+		if (gstatus == 2){
+			ctx.fillStyle = "rgb(250, 250, 250)";
+			ctx.font = "24px Helvetica";
+			ctx.textAlign = "left";
+			ctx.textBaseline = "top";
+			ctx.fillText("Final Score: " + gwins , 32, 220);
+			return 0;
+		}
+		// hero
+		if (heroReady) {
+		    ctx.drawImage(heroImage, hero.x, hero.y);
+		}
+		// money
+		if (moneyReady) {
+		    for (var i = 0; i < moneyarr.length; i++) {
+		        ctx.drawImage(moneyImage, moneyarr[i].x, moneyarr[i].y);
+		    }
+		}
+
+		// bomb
+		if (bombReady) {
+		    for (var i = 0; i < bombarr.length; i++) {
+		        ctx.drawImage(bombImage, bombarr[i].x, bombarr[i].y);
+		    }
+		}
+
+		// 计分
+		ctx.fillStyle = "rgb(250, 250, 250)";
+		ctx.font = "24px Helvetica";
+		ctx.textAlign = "left";
+		ctx.textBaseline = "top";
+		ctx.fillText("Score: " + gwins +"  Time: " + gtime.toString().substring(0, 4), 32, 32);
+		
+	}
+	var reset = function(){
+		// 重置当局数据
+		gstatus = 1;
+		gtime = gtimedefault;
+		gwins = 0;
+		divStatus.style.display="none";
+
+		hero.y = canvas.height - hero.height;
+		hero.x = canvas.width / 2 - hero.width / 2;
+		for (var i=0;i<moneyarr.length;i++){
+			moneyarr[i].init();
+		}
+		for (var i=0;i<bombarr.length;i++){
+			bombarr[i].init();
+		}
+	}
+
+	var main = function(){
+		var now = Date.now();
+		var delta = now - then;
+		gtime = (gtime * 1000 - delta) / 1000;
+		update(delta/50);
+		render();
+		then = now;
+		window.requestAnimationFrame(main);
+	}
+
+	for (var i=0;i<moneyarr.length;i++){
+		moneyarr[i] = new money();
+	}
+	for (var i=0;i<bombarr.length;i++){
+		bombarr[i] = new bomb();
+	}
+	var then = Date.now();
+	reset();
+	main();
+	
+
+
+	</script>
+</body>
+</html>
