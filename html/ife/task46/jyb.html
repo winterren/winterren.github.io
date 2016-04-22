@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<title>MoneyMan</title>
+	<title>Demo</title>
 	<style>
 	*{
 		margin: 0;
@@ -34,8 +34,8 @@
 	<script>
 
 	// 获取屏幕宽高
-	screenWidth =  window.innerWidth|| document.documentElement.clientWidth|| document.body.clientWidth;
-	screenHeight = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+	screenWidth =   document.body.clientWidth|| document.documentElement.clientWidth|| window.innerWidth;
+	screenHeight = document.body.clientHeight|| document.documentElement.clientHeight|| window.innerHeight;
 	// 创建canvas
 	var canvas = document.createElement("canvas");
 	var ctx = canvas.getContext("2d");
