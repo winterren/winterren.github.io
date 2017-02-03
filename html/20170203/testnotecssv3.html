@@ -1,0 +1,343 @@
+layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>note</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing:border-box;
+	}
+	body{
+		background: url("img/bg_note_wood.jpg");
+	}
+	#note_top_left, #note_top_right, #note_content_left, #note_content_right{
+		float: left;
+	}
+	#note_text{}
+	#note_top{
+		height: 64px;
+	}
+	#note_top_left{
+		width: 27px;
+		height: 64px;
+		background: url("img/bg_note_top_left.png");
+	}
+	#note_top_right{
+		box-shadow: 1px 8px 4px rgba(58,15,0,.2);
+		height: 64px;
+		background: url("img/bg_note_top_right.png");
+	}
+	#note_content_left{
+		box-shadow: 7px 1px 4px rgba(58,15,0,.2);
+		width: 27px;
+		background: url("img/bg_note_content_left.png");
+	}
+	#note_content_right{
+		box-shadow: 1px 1px 4px rgba(58,15,0,.2);
+		background: url("img/bg_note_content_right.png");
+	}
+	#note_content_right{
+		-webkit-transition: all 1.8s;
+		transition: all 1.8s;
+		padding: 0 10px;
+		font-size: 15px;
+		line-height: 46px;
+	}
+	#note_content_right div{
+		-webkit-transition: all 1s;
+		transition: all 1s;
+	}
+	.notepage p{
+		opacity: 0;
+	}
+
+
+	@keyframes appear{
+		0%{opacity: 0;}
+		100%{opacity: 1;}
+	}
+	@-webkit-keyframes planetself{
+		0%{opacity: 0;}
+		100%{opacity: 1;}
+	}
+	.notepage p:nth-child(1){
+		-webkit-animation: appear 3s  forwards ;
+	}
+	.notepage p:nth-child(2){
+		-webkit-animation: appear 3s 2s forwards ;
+	}
+	.notepage p:nth-child(3){
+		-webkit-animation: appear 3s 4s forwards ;
+	}
+	.notepage p:nth-child(4){
+		-webkit-animation: appear 3s 6s  forwards ;
+	}
+	.notepage p:nth-child(5){
+		-webkit-animation: appear 3s 8s  forwards ;
+	}
+	.notepage p:nth-child(6){
+		-webkit-animation: appear 3s 10s  forwards ;
+	}
+
+	#p1bgmBtn{
+		position: fixed;
+		width: 20px;
+		height: 20px;
+		background: rgba(20,10,20,0.2);
+		transition: all 0.3s;
+	}
+
+	</style>
+</head>
+<body>
+	
+	<div id="note_text">
+		<div id="note_top">
+			<div id="note_top_left"></div><!--
+			--><div id="note_top_right"></div>
+		</div><!--
+		--><div id="note_content">
+			<div id="note_content_left"></div><!--
+			--><div id="note_content_right"></div><!--
+		--></div>
+<!-- 		<div id="notetext_title"></div>
+		<div id="notetext_zw">
+			<p>这是一个简单的小测试</p>
+			<p>唱着人们心头的白鸽</p>
+			<p>几乎全部是新镜头，几位重量级角色：洛萨、杜隆坦、奥格瑞姆等等全员亮相，在电影6月8日正式上映前，快来先睹为快。在新的四个片段中，分别是杜隆坦和奥格瑞姆两位好兄弟交谈，难得的安静时光让两个兽人获得了少有的平静，奥格瑞姆还拿石头丢杜隆坦的头，兄弟情义可见一斑；下一个片段，镜头转向了莱恩国王、洛萨和迦罗娜；第三个片段十分精彩，洛萨带领的军队</p>	
+			<p>5月13日消息，新浪微博与秒拍宣布推出移动直播应用“一直播”，进入移动直播战场。此前，在短视频领域胶着的竞争中，秒拍曾通过与微博的战略合作却得竞争优势。与秒拍和微博的关系类似，微博和一直播同样达成了直播战略合作伙伴关系。一直播作为一款独立直播APP存在，但同时又承担起微博直播业务的支持职能。5月13日消息，新浪微博与秒拍宣布推出移动直播应用“一直播”，进入移动直播战场。此前，在短视频领域胶着的竞争中，秒拍曾通过与微博的战略合作却得竞争优势。与秒拍和微博的关系类似，微博和一直播同样达成了直播战略合作伙伴关系。一直播作为一款独立直播APP存在，但同时又承担起微博直播业务的支持职能。5月13日消息，新浪微博与秒拍宣布推出移动直播应用“一直播”，进入移动直播战场。此前，在短视频领域胶着的竞争中，秒拍曾通过与微博的战略合作却得竞争优势。与秒拍和微博的关系类似，微博和一直播同样达成了直播战略合作伙伴关系。一直播作为一款独立直播APP存在，但同时又承担起微博直播业务的支持职能。5月13日消息，新浪微博与秒拍宣布推出移动直播应用“一直播”，进入移动直播战场。此前，在短视频领域胶着的竞争中，秒拍曾通过与微博的战略合作却得竞争优势。与秒拍和微博的关系类似，微博和一直播同样达成了直播战略合作伙伴关系。一直播作为一款独立直播APP存在，但同时又承担起微博直播业务的支持职能。</p>
+			<p>胶着的竞争中，秒拍曾通过与微博的战略合作却得竞争优势。与秒拍和微博的关系类似，微博和一直播同样达成了直播战略合作伙伴关系。一直播作为一款独立直播APP存在，但同时又承担起微博直播业务的支持职能。5月13日消息，新浪微博与秒拍宣布推出移动直播应用“一直播”，进入移动直播战场。此前，在短视频领域胶着的竞争中，秒拍曾通过</p> -->
+		</div>
+		
+
+	</div>
+	<audio src="bgm_hp.mp3" hidden="true" autoplay="true" loop="true" id="p1bgm"></audio>
+	<div id="p1bgmBtn"></div>
+
+	<script>
+	screenWidth =  document.documentElement.clientWidth|| window.innerWidth;
+	screenHeight = document.documentElement.clientHeight|| window.innerHeight;
+	var fontSize = 15;
+	function id(idname){
+		return document.getElementById(idname);
+	}
+	id('note_top_right').style.width = id('note_content_right').style.width = screenWidth - id('note_top_left').offsetWidth - 8 + "px";
+	id('note_content_right').style.height = id('note_content_left').style.height = screenHeight -id('note_top_left').offsetHeight - 8 + "px"
+
+	// var noteContent = "事实上，我当然知道你才不是什么没见过世面的姑娘。<br>而我似乎也是从小到大都很不要脸的自诩和身边的人不太一样的、活在自己的小星球里的人。<br>但是随着你一步一步走进我的生活，<br>　<br>看到你的聪明，<br>你的美丽，<br>你的乐观，<br>你的与众不同……<br>埃？世界原来可以这么亮？』<br>才发现自己的小星星原来是这么黯淡，<br>甚至连这么点儿稀薄的光，好像也是来自陈笑笑星球的耀眼光芒照在上面的反射。<br>记得我说过你让我有从未有过的对的感觉，<br>那时你问我那『对』是什么感觉。<br>我竟然傻到一时想不出怎么表达。<br>并且我现在仍然不知道该怎么表达。<br>因为『对』就是『对』嘛。<br>没有迟疑，<br>无需表达。<br>自己的脑袋始终是对自己最诚实的那个。<br>我相信科学，但是这不妨碍我相信第六感，<br>我觉得人的脑袋里是有一个比alphago还要高不知哪去的神经网络、机器学习的决策系统的，<br>决策系统背后站着一位KUROKO把你每天接触到的海量大数据塞进去，然后再把写着数据决策出概率最高运行结果的纸条递回大脑。<br>看不到演算过程的你会奇怪这个结果是从哪来的，于是在一次又一次印证结果后，天真的称赞自己一句『我的第六感真准啊』。";
+	// var noteContent = "夫天地者，<br>万物之逆旅也；<br>光阴者，<br>百代之过客也。<br>而浮生若梦，<br>为欢几何？<br>古人秉烛夜游，<br>良有以也。<br>况阳春召我以烟景，<br>大块假我以文章。<br>会桃花之芳园，<br>序天伦之乐事。<br>群季俊秀，<br>皆为惠连；<br>吾人咏歌，<br>独惭康乐。<br>幽赏未已，高谈转清。开琼筵以坐花，飞<br>羽觞而醉月。<br>不有佳咏，<br>何伸雅怀？<br>如诗不成，<br>罚依金谷酒数。<br>——李白《春夜宴从弟桃花园序》"
+	var noteContent = "致C：<br>　<br>哎呀呀，<br>真的像一场梦一样<br>要不是去年的这一天，一句祝你生日快乐，哪有这么奇妙的今天呀<br>哪有机会体会那种赶在商场一开门就冲进去吃包场牛蛙串串的深度吃货体验<br>哪有机会一边看着脸颊红扑扑的姑娘赏心悦目、一边吃到肥美的蒸龙虾<br>又哪有机会品尝到热腾腾的正宗热干面并至今难以忘怀（根本全是为了吃吧喂<br>　<br>下面回到我方今天主要要陈述的观点（滚<br>　<br>从去年入冬以来，我们一起经历了信息量爆炸的很多<br>也产生过一些不足道的小压力小沮丧<br>但是如果撩开初见时那层雾里看花的面纱<br>看到更多的总是你的美好，<br>比想象中还要多得多的美好。<br>　<br>就像坐拥一大把刮开可以查看女朋友美好品质的彩票<br>刮开一个是“善良”<br>再刮一个是“纯洁”……<br>连一张“谢谢惠顾”都没有<br>让面瘫多年的我只要一想到你就会绽放笑容<br>　<br>感谢这么美好的你能愿意接纳这样的一个我<br>　<br>至于那些不足道的小事，<br>其实生活本就是这样。<br>有时笃定、有时彷徨，<br>有时希望、有时懊恼，<br>有时有压力有翘首有得意有沮丧，<br>但是有你陪在我身边<br>这些时刻都变得温暖又有意义<br>　<br>因为有你陪在我身边，我看到锦鲤都不想许愿了<br>　<br>你不只给了我爱情，还给了我一堆会笑的小铃铛<br>　<br>“这就像花儿一样，如果你爱上了一颗星球上的花儿，晚上看星空就会感到温馨。所有的星星上都鲜花盛开。”<br>　<br>因为爱上了你，我的整个世界都鲜花盛开了。<br>　<br>谢谢你，这个在我的世界种满鲜花的你<br>　<br><br>and……最后最重要的……祝你<br>　<br>生日快乐！<br>　<br>去年明明是祝你的一句生日快乐，结果给我带来了整整一年的快乐。<br>　<br>在你新的一岁里，我会努力回馈老客户，也给你送去更多快乐的^_^<br>　<br>~ The End ~";
+	var noteArr1 = noteContent.split('<br>');
+	var noteArr2 = new Array();
+	var noteArr3 = new Array();
+	var noteRightWidth = screenWidth - id('note_top_left').offsetWidth - 45;
+	var lineCharcs = Math.floor(noteRightWidth / fontSize);
+	var pageLines = Math.floor((screenHeight-69) / 46);
+
+
+	// 分行写入noteArr3
+	for(var i=0;i<noteArr1.length;i++){
+		noteArr2[i] = new Array();
+		var paraLines = Math.ceil(noteArr1[i].length * fontSize / noteRightWidth);
+		for(var j=0;j<paraLines;j++){
+			var tempArr = new Array();
+			noteArr2[i].push(noteArr1[i].substr(j*lineCharcs, lineCharcs));
+		}
+		// console.log(i);
+	}
+	for(var i=0;i<noteArr2.length;i++){
+		for(var j=0;j<noteArr2[i].length;j++){
+			noteArr3.push(noteArr2[i][j]);
+		}
+	}
+
+	// for(var i=0;i<pageLines;i++){
+	// 	if(noteArr3[i]){
+	// 		tempP = document.createElement('p');
+	// 		tempTxt = document.createTextNode(noteArr3[i]);
+	// 		tempP.appendChild(tempTxt);
+	// 		id('note_content_right').appendChild(tempP);
+	// 	}
+		
+	// }
+
+	// var timerI = 0;
+	// var timer = setInterval(function(){
+	// 	var tempP = document.createElement('p');
+	// 	var tempTxt = document.createTextNode(noteArr3[timerI]);
+	// 	tempP.appendChild(tempTxt);
+	// 	id('note_content_right').appendChild(tempP);
+	// 	tempP.style.opacity=0;
+	// 	setTimeout(function(){
+	// 		tempP.style.opacity=1;
+	// 	},1000)
+	// 	timerI++;
+		
+	// 	if(!noteArr3[timerI]){
+	// 		clearInterval(timer);
+	// 	}
+	// 	if(timerI>=pageLines){
+	// 		clearInterval(timer);
+	// 	}
+	// },1000)
+
+	var pageTotal = Math.ceil(noteArr3.length/pageLines);
+	// 页对象
+	function page(num){
+		this.arr = new Array();
+		this.initPage = num;
+
+		// 添加一个div，id为page1
+		var tempDiv = document.createElement('div');
+		var tempId = "page"+this.initPage;
+		$(tempDiv).attr('id',tempId);
+		$(tempDiv).addClass('notepage');
+		id('note_content_right').appendChild(tempDiv);
+
+		this.div = tempDiv;
+		this.div.style.display="none";
+	}
+	page.prototype.init = function(){
+
+		var tempDiv = this.div;
+		var firstLineNum = this.initPage * pageLines;
+		var lastLineNum = this.initPage * pageLines + pageLines;
+
+		for(var i=firstLineNum;i<lastLineNum;i++){
+			if(noteArr3[i]){
+				var tempP =document.createElement('p');
+				var tempTxt = document.createTextNode(noteArr3[i]);
+				tempP.appendChild(tempTxt);
+				tempDiv.appendChild(tempP);
+				var cssTxt = "-webkit-animation: appear 2s " + (1.5*(i-firstLineNum)) + "s  forwards;"; 
+				tempP.style.cssText = cssTxt;
+			}
+
+		}
+	}
+	page.prototype.erase = function(){
+		this.div.style.display="none";
+	}
+	page.prototype.show = function(){
+		this.div.style.display="block";
+	}
+	// 生成页
+	var pageArr = new Array();
+	console.log(pageTotal);
+	for (var i=0;i<pageTotal;i++){
+		pageArr[i] = new page(i);
+		pageArr[i].init();
+	}
+	pageArr[0].show();
+	var pagecurrent = 0;
+
+
+	// 滑动函数
+	document.addEventListener('touchstart',swipe, false);
+	document.addEventListener('touchmove',swipe, false);
+	document.addEventListener('touchend',swipe, false);
+	function swipe(event){
+		var event = event||window.event;
+		var touch = event.changedTouches[0];
+		switch(event.type){
+			case "touchstart":
+				startPos = {
+					x: touch.clientX,
+					y: touch.clientY
+				}
+				break;
+			case "touchmove":
+				event.preventDefault();
+				break;
+			case "touchend":
+				changePos = {
+					x: touch.clientX - startPos.x,
+					y: touch.clientY - startPos.y
+				}
+				if(changePos.y>50){
+					console.log(pagecurrent);
+					if(pagecurrent>0){
+						pageArr[pagecurrent].div.style.opacity=0;
+						setTimeout(function(){
+							pageArr[pagecurrent].erase();
+							pageArr[pagecurrent].div.style.opacity=1;
+							pagecurrent--;
+							pageArr[pagecurrent].show();
+						},1000)
+					
+					}
+				}
+				if(changePos.y<-50){
+					console.log(pagecurrent);
+					if(pagecurrent<pageArr.length-1){
+						pageArr[pagecurrent].div.style.opacity=0;
+						setTimeout(function(){
+							pageArr[pagecurrent].erase();
+							pageArr[pagecurrent].div.style.opacity=1;
+							pagecurrent++;
+							pageArr[pagecurrent].show();
+						},1000)
+					}
+				}
+				break;
+		}
+	}
+
+	var noteLines = Math.ceil(noteContent.length*20 / (screenWidth - id('note_top_left').offsetWidth - 20));
+
+
+	//***** music part
+	function music(btne,musice){
+		this.btne = btne;
+		this.musice = musice;
+		this.btne.style.left = screenWidth - 40 +'px';
+		this.btne.style.top = 20 +'px';
+	}
+	music.prototype.play = function(){
+		this.musice.play();
+		this.btne.style.width="20px";
+		this.btne.style.height="20px";
+		this.btne.style.background="rgba(20,10,20,0.2)";
+		this.btne.style.borderLeft="0";
+		this.btne.style.borderBottom="0";
+		this.btne.style.borderTop="0";
+	}
+	music.prototype.volume = function(num){
+		this.musice.volume = num;
+	}
+	music.prototype.change = function(url){
+		this.musice.src = url;
+	}
+	music.prototype.pause = function(){
+		this.musice.pause();
+		this.btne.style.width="0px";
+		this.btne.style.height="0px";
+		this.btne.style.background="transparent";
+		this.btne.style.borderLeft="20px solid rgba(20,10,20,0.2)";
+		this.btne.style.borderBottom="10px solid transparent";
+		this.btne.style.borderTop="10px solid transparent";
+	}
+	music.prototype.toggle = function(){
+		if(this.btne.style.borderLeft=="0px"){
+			this.pause();
+		}else{
+			this.play();
+		}
+	}
+	var p1bgmBtn=document.getElementById('p1bgmBtn');
+	var p1bgm=document.getElementById('p1bgm');
+	var p1music = new music(p1bgmBtn, p1bgm);
+	p1music.volume(0.25);
+	p1music.play();
+	p1music.btne.addEventListener('touchend',function(){
+		p1music.toggle();
+	},false);
+	</script>
+</body>
+</html>
