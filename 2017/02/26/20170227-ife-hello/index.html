@@ -3,27 +3,42 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于margin穿透的两三事 | winterren的博客</title>
+  <title>20170227-ife-hello | winterren的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="遇到一个问题：12...div.outter&amp;gt;div.inner
-【问题】在以上情况中，inner的margin-top会穿透inner，变成outter的margin-top。（margin-left则没有这个情况）
-【解决】outter加一个overflow:auto或hidden。
-【引申的问题】overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用marg">
+  <meta name="description" content="从今天开始更新百度IFE学院2017的课程，希望能对自己有所帮助。
+预计时间表：
+2.27-3.01 HTML/CSS “小薇学院” 1-9
+3.02-3.10 Javascript “斌斌学院” 1-6
+3.11-3.20 综合 “耀耀学院” 1-3/4-5/6-7
+
+有余力下继续做：
+商业平台学院中，会包含移动端Native开发的学习教程，包括iOS及Android；
+ECharts&amp;amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于margin穿透的两三事">
-<meta property="og:url" content="http://yoursite.com/2015/11/25/20151125-margin-top/index.html">
+<meta property="og:title" content="20170227-ife-hello">
+<meta property="og:url" content="http://yoursite.com/2017/02/26/20170227-ife-hello/index.html">
 <meta property="og:site_name" content="winterren的博客">
-<meta property="og:description" content="遇到一个问题：12...div.outter&amp;gt;div.inner
-【问题】在以上情况中，inner的margin-top会穿透inner，变成outter的margin-top。（margin-left则没有这个情况）
-【解决】outter加一个overflow:auto或hidden。
-【引申的问题】overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用marg">
-<meta property="og:updated_time" content="2015-12-08T13:16:39.225Z">
+<meta property="og:description" content="从今天开始更新百度IFE学院2017的课程，希望能对自己有所帮助。
+预计时间表：
+2.27-3.01 HTML/CSS “小薇学院” 1-9
+3.02-3.10 Javascript “斌斌学院” 1-6
+3.11-3.20 综合 “耀耀学院” 1-3/4-5/6-7
+
+有余力下继续做：
+商业平台学院中，会包含移动端Native开发的学习教程，包括iOS及Android；
+ECharts&amp;amp;">
+<meta property="og:updated_time" content="2017-02-26T18:28:37.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于margin穿透的两三事">
-<meta name="twitter:description" content="遇到一个问题：12...div.outter&amp;gt;div.inner
-【问题】在以上情况中，inner的margin-top会穿透inner，变成outter的margin-top。（margin-left则没有这个情况）
-【解决】outter加一个overflow:auto或hidden。
-【引申的问题】overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用marg">
+<meta name="twitter:title" content="20170227-ife-hello">
+<meta name="twitter:description" content="从今天开始更新百度IFE学院2017的课程，希望能对自己有所帮助。
+预计时间表：
+2.27-3.01 HTML/CSS “小薇学院” 1-9
+3.02-3.10 Javascript “斌斌学院” 1-6
+3.11-3.20 综合 “耀耀学院” 1-3/4-5/6-7
+
+有余力下继续做：
+商业平台学院中，会包含移动端Native开发的学习教程，包括iOS及Android；
+ECharts&amp;amp;">
   
     <link rel="alternative" href="/atom.xml" title="winterren的博客" type="application/atom+xml">
   
@@ -206,11 +221,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-20151125-margin-top" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-20170227-ife-hello" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/25/20151125-margin-top/" class="article-date">
-  	<time datetime="2015-11-25T14:28:15.000Z" itemprop="datePublished">2015-11-25</time>
+      <a href="/2017/02/26/20170227-ife-hello/" class="article-date">
+  	<time datetime="2017-02-25T18:08:21.000Z" itemprop="datePublished">2017-02-26</time>
 </a>
     </div>
   
@@ -223,7 +238,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于margin穿透的两三事
+      20170227-ife-hello
     </h1>
   
 
@@ -232,14 +247,10 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IFE/">IFE</a></li></ul>
 	</div>
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/前端/">前端</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -247,11 +258,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>遇到一个问题：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">div.outter&gt;div.inner</span><br></pre></td></tr></table></figure></p>
-<h2 id="【问题】">【问题】</h2><p>在以上情况中，inner的margin-top会穿透inner，变成outter的margin-top。（margin-left则没有这个情况）</p>
-<h2 id="【解决】">【解决】</h2><p>outter加一个overflow:auto或hidden。</p>
-<h2 id="【引申的问题】">【引申的问题】</h2><p>overflow肯定不是一个好的解决方法，在父子框架中需要有一定边距时，最好不要用margin来实现。<br>正所谓<strong> “同级用margine，父子用padding” </strong>。<br>换成padding-top来解决会怎么样呢？</p>
-<h2 id="【引申的解决】">【引申的解决】</h2><p>用padding-top时，所有css样式就都可以写进outter中。<br>随之而来的问题是如果你的outter是定height的，虽然没有穿透的问题，但是content-box会被撑大。<br><strong> 解决一 </strong>：自己手动把outter的height改成<strong> height减去padding-top的值 </strong>，完美解决。<br><strong> 解决二 </strong>：利用怪异盒子，<strong> box-sizing: border-box; </strong>，可以在不修改height成难懂数字的情况下解决，缺点是只支持ie8以上浏览器。</p>
+        <p>从今天开始更新百度IFE学院2017的课程，希望能对自己有所帮助。</p>
+<h2 id="预计时间表：">预计时间表：</h2><ul>
+<li>2.27-3.01 HTML/CSS “小薇学院” 1-9</li>
+<li>3.02-3.10 Javascript “斌斌学院” 1-6</li>
+<li>3.11-3.20 综合 “耀耀学院” 1-3/4-5/6-7</li>
+</ul>
+<h2 id="有余力下继续做：">有余力下继续做：</h2><ul>
+<li>商业平台学院中，会包含移动端Native开发的学习教程，包括iOS及Android；</li>
+<li>ECharts&amp;WebVR主要是进行数据可视化、WebGL的实践练习；</li>
+<li>糯米学院中则包含MVVM、CSS3动画等特色课程；</li>
+</ul>
 
       
     </div>
@@ -261,18 +278,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/25/20151125-inlineblock-space/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/02/27/20170227-ife-xiaowei-01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          inline-block之间空隙的两三事
+          HTML&amp;CSS任务一：零基础HTML编码
         
       </div>
     </a>
   
   
-    <a href="/2015/11/20/20151120-css3-animation/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">画了个Android机器人 &amp; 拍了点照片还没后期</div>
+    <a href="/2015/12/22/20151222-xuzhou-huaita/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">淮塔·2015年秋</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -301,7 +318,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="20151125-margin-top" data-title="关于margin穿透的两三事" data-url="http://yoursite.com/2015/11/25/20151125-margin-top/"></div>
+	<div class="ds-thread" data-thread-key="20170227-ife-hello" data-title="20170227-ife-hello" data-url="http://yoursite.com/2017/02/26/20170227-ife-hello/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

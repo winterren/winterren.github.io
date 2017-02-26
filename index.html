@@ -118,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/css3/" style="font-size: 20px;">css3</a> <a href="/tags/云龙湖/" style="font-size: 10px;">云龙湖</a> <a href="/tags/冬天/" style="font-size: 10px;">冬天</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/淮塔/" style="font-size: 10px;">淮塔</a> <a href="/tags/琐事/" style="font-size: 20px;">琐事</a> <a href="/tags/矿大南湖/" style="font-size: 10px;">矿大南湖</a> <a href="/tags/秋天/" style="font-size: 20px;">秋天</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/IFE/" style="font-size: 10px;">IFE</a> <a href="/tags/JS/" style="font-size: 15px;">JS</a> <a href="/tags/css3/" style="font-size: 20px;">css3</a> <a href="/tags/云龙湖/" style="font-size: 10px;">云龙湖</a> <a href="/tags/冬天/" style="font-size: 10px;">冬天</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/淮塔/" style="font-size: 10px;">淮塔</a> <a href="/tags/琐事/" style="font-size: 20px;">琐事</a> <a href="/tags/矿大南湖/" style="font-size: 10px;">矿大南湖</a> <a href="/tags/秋天/" style="font-size: 20px;">秋天</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -202,7 +202,7 @@
   
     <div class="article-meta">
       <a href="/2017/02/27/20170227-ife-xiaowei-01/" class="article-date">
-  	<time datetime="2017-02-26T18:15:03.000Z" itemprop="datePublished">2017-02-27</time>
+  	<time datetime="2017-02-26T16:15:03.000Z" itemprop="datePublished">2017-02-27</time>
 </a>
     </div>
   
@@ -224,9 +224,58 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Lesson">Lesson</h1><p><a href="http://ife.baidu.com/course/detail/id/90" target="_blank" rel="external">任务一：零基础HTML编码</a></p>
-<h1 id="Reference">Reference</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" target="_blank" rel="external">HTML 元素参考</a></p>
-<h1 id="Demo">Demo</h1><h1 id="Note">Note</h1><h1 id="HTML">HTML</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Lesson">Lesson</h2><ul>
+<li><a href="http://ife.baidu.com/course/detail/id/90" target="_blank" rel="external">任务一：零基础HTML编码</a></li>
+</ul>
+<h2 id="Reference">Reference</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element" target="_blank" rel="external">HTML 元素参考</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="external">HTTP 状态码</a></li>
+<li><a href="https://www.zhihu.com/question/22689579" target="_blank" rel="external">Web相关名词通俗解释</a></li>
+</ul>
+<h2 id="Demo">Demo</h2><ul>
+<li><a href="/html/ife2017/xiaowei/task01/index.html">Example Page</a></li>
+</ul>
+<h2 id="Note">Note</h2><h4 id="常见的HTTP状态码">常见的HTTP状态码</h4><ul>
+<li><p>200 OK<br>请求已成功，请求所希望的响应头或数据体将随此响应返回。</p>
+</li>
+<li><p>301 Moved Permanently<br>被请求的资源已永久移动到新位置，并且将来任何对此资源的引用都应该使用本响应返回的若干个URI之一。如果可能，拥有链接编辑功能的客户端应当自动把请求的地址修改为从服务器反馈回来的地址。除非额外指定，否则这个响应也是可缓存的。<br>新的永久性的URI应当在响应的Location域中返回。除非这是一个HEAD请求，否则响应的实体中应当包含指向新的URI的超链接及简短说明。<br>如果这不是一个GET或者HEAD请求，因此浏览器禁止自动进行重定向，除非得到用户的确认，因为请求的条件可能因此发生变化。<br>注意：对于某些使用HTTP/1.0协议的浏览器，当它们发送的POST请求得到了一个301响应的话，接下来的重定向请求将会变成GET方式。</p>
+</li>
+<li><p>302 Found<br>请求的资源现在临时从不同的URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。</p>
+</li>
+<li><p>304 Not Modified<br>如果客户端发送了一个带条件的GET请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。304响应禁止包含消息体，因此始终以消息头后的第一个空行结尾。</p>
+</li>
+<li><p>307 Temporary Redirect<br>请求的资源现在临时从不同的URI响应请求。由于这样的重定向是临时的，客户端应当继续向原有地址发送以后的请求。只有在Cache-Control或Expires中进行了指定的情况下，这个响应才是可缓存的。</p>
+</li>
+<li><p>400 Bad Request<br>由于包含语法错误，当前请求无法被服务器理解。除非进行修改，否则客户端不应该重复提交这个请求。</p>
+</li>
+<li><p>401 Unauthorized<br>当前请求需要用户验证。该响应必须包含一个适用于被请求资源的WWW-Authenticate信息头用以询问用户信息。客户端可以重复提交一个包含恰当的Authorization头信息的请求。如果当前请求已经包含了Authorization证书，那么401响应代表着服务器验证已经拒绝了那些证书。如果401响应包含了与前一个响应相同的身份验证询问，且浏览器已经至少尝试了一次验证，那么浏览器应当向用户展示响应中包含的实体信息，因为这个实体信息中可能包含了相关诊断信息。参见RFC 2617。</p>
+</li>
+<li><p>403 Forbidden<br>服务器已经理解请求，但是拒绝执行它。与401响应不同的是，身份验证并不能提供任何帮助，而且这个请求也不应该被重复提交。如果这不是一个HEAD请求，而且服务器希望能够讲清楚为何请求不能被执行，那么就应该在实体内描述拒绝的原因。当然服务器也可以返回一个404响应，假如它不希望让客户端获得任何信息。</p>
+</li>
+<li><p>404 Not Found<br>请求失败，请求所希望得到的资源未被在服务器上发现。没有信息能够告诉用户这个状况到底是暂时的还是永久的。假如服务器知道情况的话，应当使用410状态码来告知旧资源因为某些内部的配置机制问题，已经永久的不可用，而且没有任何可以跳转的地址。404这个状态码被广泛应用于当服务器不想揭示到底为何请求被拒绝或者没有其他适合的响应可用的情况下。</p>
+</li>
+<li><p>410 Gone<br>被请求的资源在服务器上已经不再可用，而且没有任何已知的转发地址。这样的状况应当被认为是永久性的。如果可能，拥有链接编辑功能的客户端应当在获得用户许可后删除所有指向这个地址的引用。如果服务器不知道或者无法确定这个状况是否是永久的，那么就应该使用404状态码。除非额外说明，否则这个响应是可缓存的。</p>
+</li>
+<li><p>500 Internal Server Error<br>服务器遇到了一个未曾预料的状况，导致了它无法完成对请求的处理。一般来说，这个问题都会在服务器的程序码出错时出现。</p>
+</li>
+<li><p>501 Not Implemented<br>服务器不支持当前请求所需要的某个功能。当服务器无法识别请求的方法，并且无法支持其对任何资源的请求。</p>
+</li>
+</ul>
+<h4 id="HTML锚点">HTML锚点</h4><ul>
+<li><p>命名锚</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h2</span> <span class="attribute">id</span>=<span class="value">"article1"</span>&gt;</span>点此跳转<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一些文档中说用name取代id亦可，经测试在h2标签上无效。</p>
+</li>
+<li><p>指向该锚的链接</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#article1"</span>&gt;</span>article1<span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="一些小的点">一些小的点</h4><ul>
+<li>input可以{type}取password,email,date等，{placeholder}预置提示信息。(HTML5)</li>
+<li>label的{for}取为input中的{id}时，点label可以自动将光标移至input中。</li>
+<li>radio设置同样的name时才有同一组的效果。</li>
+</ul>
+<h2 id="HTML">HTML</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -234,6 +283,71 @@
     <div class="article-info article-info-index">
       
       
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-20170227-ife-hello" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/26/20170227-ife-hello/" class="article-date">
+  	<time datetime="2017-02-25T18:08:21.000Z" itemprop="datePublished">2017-02-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/26/20170227-ife-hello/">20170227-ife-hello</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>从今天开始更新百度IFE学院2017的课程，希望能对自己有所帮助。</p>
+<h2 id="预计时间表：">预计时间表：</h2><ul>
+<li>2.27-3.01 HTML/CSS “小薇学院” 1-9</li>
+<li>3.02-3.10 Javascript “斌斌学院” 1-6</li>
+<li>3.11-3.20 综合 “耀耀学院” 1-3/4-5/6-7</li>
+</ul>
+<h2 id="有余力下继续做：">有余力下继续做：</h2><ul>
+<li>商业平台学院中，会包含移动端Native开发的学习教程，包括iOS及Android；</li>
+<li>ECharts&amp;WebVR主要是进行数据可视化、WebGL的实践练习；</li>
+<li>糯米学院中则包含MVVM、CSS3动画等特色课程；</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IFE/">IFE</a></li></ul>
+	</div>
+
       
 
       
@@ -277,9 +391,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>下面是一些其实11月20日就拍好的照片，这才筛选了几张传上来。<br>上礼拜才刚刚用jQuery做的照片墙，已经被我删的不成样子了，暂时填了些没法瀑布流起来的图片。</p>
+        <p>下面是一些其实11月20日就拍好的照片，这才筛选了几张传上来。<br>上礼拜才刚刚用jQuery做的照片墙。</p>
 <p><img src="/images/20151222/DSC_0203.JPG" alt="淮塔秋天"><br><img src="/images/20151222/DSC_0206.JPG" alt="淮塔秋天"><br><img src="/images/20151222/DSC_0218.JPG" alt="淮塔秋天"><br><img src="/images/20151222/DSC_0224.JPG" alt="淮塔秋天"></p>
-<p>从此刻开始，<br><strong> 站起来吧！ </strong></p>
 
       
     </div>
@@ -708,67 +821,6 @@
       
         <h2 id="学习有感">学习有感</h2><p>拖延了一天才大略的对DOM，大略的感觉就是把HTML标签变成树形再通过定义好的方法提取把树上的叶子提取出来。<br>再回头细读一下CSS和JS，学学实例。<br>另外买了一本php cookbook，希望如果有空看看后端，能比前端更得要领一点。<br>总的来说，看书过程比较痛苦。后续多琢磨琢磨别人的前端是怎么做的然后临摹一遍，可能会痛快一些。</p>
 <h2 id="双十一">双十一</h2><p>把内存和镜头都买了。<br>这种通过简单粗暴的杀钱方法得到的快感就跟看电视剧和玩游戏一样，伴有负罪感且不可能有长的延续性的。<br>希望过了短效的快感之后，这些东西能给自己工作效率、生活质量带来长效的提高。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/琐事/">琐事</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/随笔/">随笔</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-20151108-helloworld-my-mac" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/08/20151108-helloworld-my-mac/" class="article-date">
-  	<time datetime="2015-11-07T17:22:46.000Z" itemprop="datePublished">2015-11-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/08/20151108-helloworld-my-mac/">mac下共享hexo安装失败 &amp; 琐事</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1">1</h2><p>本来打算把Dropbox共享的hexo文件夹在mac mini上部署一遍，实现win+mac双机交替写博客的。<br>不过最终部署失败，一直卡在缺少module，有个.build之类的文件夹有问题。<br>百度之后，用npm install hexo -g no-optional可以使g和s指令成功运行，但是治标不治本，对deploy指令无效。<br>所以暂时还是只能用windows写blog了泪目。</p>
-<h2 id="2">2</h2><p>去矿大办医保发现可以拍秋景了，算是彻底黄透了。<br>然而我的镜头还没来。</p>
-<h2 id="3">3</h2><p>这两天在效率很低的看JS DOM，今天再不提高效率就要歹势啦！</p>
 
       
     </div>
