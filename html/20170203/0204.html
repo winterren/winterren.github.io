@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>note</title>
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 	<style>
 	*{
 		padding: 0;
@@ -115,14 +115,67 @@
 		
 
 	</div>
-	<!-- <audio src="bgm_hp.mp3" hidden="true" autoplay="true" loop="true" id="p1bgm"></audio> -->
-<!-- <audio src="http://ois5yh1xg.bkt.clouddn.com/%E5%8D%A2%E5%86%A0%E5%BB%B7%E4%B8%80%E7%94%9F%E6%89%80%E7%88%B1.mp3" hidden="true" autoplay="true" loop="true" id="p1bgm"></audio> -->
-<!-- <embed autostart="true" hidden="true" loop="true" src="http://ois5yh1xg.bkt.clouddn.com/%E5%8D%A2%E5%86%A0%E5%BB%B7%E4%B8%80%E7%94%9F%E6%89%80%E7%88%B1.mp3"></embed> -->
-
-
-	<div id="p1bgmBtn"></div>
+<!-- 	<audio src="bgm_hp.mp3" hidden="true" autoplay="true" loop="true" id="p1bgm"></audio>
+	<div id="p1bgmBtn"></div> -->
+<audio id="bgmusic" hidden="true" autoplay preload loop controls></audio>
 
 	<script>
+	 (function() {
+	     function log(info) {
+	         console.log(info);
+	         // alert(info);
+	     }
+	     function forceSafariPlayAudio() {
+	         audioEl.load(); // iOS 9   还需要额外的 load 一下, 否则直接 play 无效
+	         audioEl.play(); // iOS 7/8 仅需要 play 一下
+	     }
+	     var audioEl = document.getElementById('bgmusic');
+	     // 可以自动播放时正确的事件顺序是
+	     // loadstart
+	     // loadedmetadata
+	     // loadeddata
+	     // canplay
+	     // play
+	     // playing
+	     // 
+	     // 不能自动播放时触发的事件是
+	     // iPhone5  iOS 7.0.6 loadstart
+	     // iPhone6s iOS 9.1   loadstart -> loadedmetadata -> loadeddata -> canplay
+	     audioEl.addEventListener('loadstart', function() {
+	         log('loadstart');
+	     }, false);
+	     audioEl.addEventListener('loadeddata', function() {
+	         log('loadeddata');
+	     }, false);
+	     audioEl.addEventListener('loadedmetadata', function() {
+	         log('loadedmetadata');
+	     }, false);
+	     audioEl.addEventListener('canplay', function() {
+	         log('canplay');
+	     }, false);
+	     audioEl.addEventListener('play', function() {
+	         log('play');
+	         // 当 audio 能够播放后, 移除这个事件
+	         window.removeEventListener('touchstart', forceSafariPlayAudio, false);
+	     }, false);
+	     audioEl.addEventListener('playing', function() {
+	         log('playing');
+	     }, false);
+	     audioEl.addEventListener('pause', function() {
+	         log('pause');
+	     }, false);
+	     // 由于 iOS Safari 限制不允许 audio autoplay, 必须用户主动交互(例如 click)后才能播放 audio,
+	     // 因此我们通过一个用户交互事件来主动 play 一下 audio.
+	     window.addEventListener('touchstart', forceSafariPlayAudio, false);
+	     audioEl.src = 'bgm_hp.mp3';
+	 })();
+	 </script>
+
+
+	<script>
+
+
+
 	screenWidth =  document.documentElement.clientWidth|| window.innerWidth;
 	screenHeight = document.documentElement.clientHeight|| window.innerHeight;
 	var fontSize = 15;
@@ -134,7 +187,7 @@
 
 	// var noteContent = "事实上，我当然知道你才不是什么没见过世面的姑娘。<br>而我似乎也是从小到大都很不要脸的自诩和身边的人不太一样的、活在自己的小星球里的人。<br>但是随着你一步一步走进我的生活，<br>　<br>看到你的聪明，<br>你的美丽，<br>你的乐观，<br>你的与众不同……<br>埃？世界原来可以这么亮？』<br>才发现自己的小星星原来是这么黯淡，<br>甚至连这么点儿稀薄的光，好像也是来自陈笑笑星球的耀眼光芒照在上面的反射。<br>记得我说过你让我有从未有过的对的感觉，<br>那时你问我那『对』是什么感觉。<br>我竟然傻到一时想不出怎么表达。<br>并且我现在仍然不知道该怎么表达。<br>因为『对』就是『对』嘛。<br>没有迟疑，<br>无需表达。<br>自己的脑袋始终是对自己最诚实的那个。<br>我相信科学，但是这不妨碍我相信第六感，<br>我觉得人的脑袋里是有一个比alphago还要高不知哪去的神经网络、机器学习的决策系统的，<br>决策系统背后站着一位KUROKO把你每天接触到的海量大数据塞进去，然后再把写着数据决策出概率最高运行结果的纸条递回大脑。<br>看不到演算过程的你会奇怪这个结果是从哪来的，于是在一次又一次印证结果后，天真的称赞自己一句『我的第六感真准啊』。";
 	// var noteContent = "夫天地者，<br>万物之逆旅也；<br>光阴者，<br>百代之过客也。<br>而浮生若梦，<br>为欢几何？<br>古人秉烛夜游，<br>良有以也。<br>况阳春召我以烟景，<br>大块假我以文章。<br>会桃花之芳园，<br>序天伦之乐事。<br>群季俊秀，<br>皆为惠连；<br>吾人咏歌，<br>独惭康乐。<br>幽赏未已，高谈转清。开琼筵以坐花，飞<br>羽觞而醉月。<br>不有佳咏，<br>何伸雅怀？<br>如诗不成，<br>罚依金谷酒数。<br>——李白《春夜宴从弟桃花园序》"
-	var noteContent = "致C：<br>　<br>哎呀呀，<br>真的像一场梦一样<br>要不是去年的这一天，一句祝你生日快乐，哪有这么奇妙的今天呀<br>哪有机会体会那种赶在商场一开门就冲进去吃包场牛蛙串串的深度吃货体验<br>哪有机会一边看着脸颊红扑扑的姑娘赏心悦目、一边吃到肥美的蒸龙虾<br>又哪有机会品尝到热腾腾的正宗热干面并至今难以忘怀（根本全是为了吃吧喂<br>　<br>下面回到我方今天主要要陈述的观点（滚<br>　<br>从去年入冬以来，我们一起经历了信息量爆炸的很多<br>也产生过一些不足道的小压力小沮丧<br>但是如果撩开初见时那层雾里看花的面纱<br>看到更多的总是你的美好，<br>比想象中还要多得多的美好。<br>　<br>就像坐拥一大把刮开可以查看女朋友美好品质的彩票<br>刮开一个是“善良”<br>再刮一个是“纯洁”……<br>连一张“谢谢惠顾”都没有<br>让面瘫多年的我只要一想到你就会绽放笑容<br>　<br>感谢这么美好的你能愿意接纳这样的一个我<br>　<br>至于那些不足道的小事，<br>其实生活本就是这样。<br>有时笃定、有时彷徨，<br>有时希望、有时懊恼，<br>有时有压力有翘首有得意有沮丧，<br>但是有你陪在我身边<br>这些时刻都变得温暖又有意义<br>　<br>因为有你陪在我身边，我看到锦鲤都不想许愿了<br>　<br>你不只给了我爱情，还给了我一堆会笑的小铃铛<br>　<br>“这就像花儿一样，如果你爱上了一颗星球上的花儿，晚上看星空就会感到温馨。所有的星星上都鲜花盛开。”<br>　<br>因为爱上了你，我的整个世界都鲜花盛开了。<br>　<br>谢谢你，这个在我的世界种满鲜花的你<br>　<br><br>and……最后最重要的……祝你<br>　<br>生日快乐！<br>　<br>去年明明是祝你的一句生日快乐，结果给我带来了整整一年的快乐。<br>　<br>在你新的一岁里，我会努力回馈老客户，也给你送去更多快乐的^_^<br>　<br>~ The End ~";
+	var noteContent = "致C：<br>　<br>啊咧咧，<br>真的像一场梦一样！<br>要不是去年的这一天，一句祝你生日快乐，哪有这么奇妙的今天呀。<br>哪有机会体会那种赶在商场一开门就冲进去吃包场牛蛙串串的深度吃货体验！<br>哪有机会一边看着脸颊红扑扑的姑娘赏心悦目、一边吃到肥美的蒸龙虾！<br>又哪有机会品尝到热腾腾的正宗热干面并至今难以忘怀（根本全是为了吃吧喂！<br>　<br>下面回到我方今天主要要陈述的观点（滚<br>　<br>从去年入冬以来，我们一起经历了信息量爆炸的很多很多。<br>也见到过一些不足道的小压力小沮丧。<br>但是如今撩开初见时那层雾里看花的面纱，<br>看到更多的总是你的美好，<br>比想象中还要多得多得多得多的美好。<br>　<br>就像坐拥一大把刮开可以查看女朋友美好品质的彩票，<br>刮开一个是“善良”，<br>再刮开一个是“纯洁”，<br>又再刮开一个是“优秀”……<br>就连一张“谢谢惠顾”都没有，<br>这简直让面瘫多年的我兹要一想到你就会绽放笑容。<br>　<br>感谢这么美好的你能愿意接纳这样的一个我。<br>　<br>至于那些不足道的小事，<br>其实生活本就是这样。<br>有时笃定、有时彷徨，<br>有时希望、有时懊恼，<br>有时有压力有翘首有得意有沮丧。<br>但是有你陪在我身边，<br>这些时刻都变得温暖又有意义。<br>　<br>也是因为有你陪在我身边，我看到锦鲤都不想许愿了！<br>　<br>是你，不只给了我爱情，还给了我一堆会笑的小铃铛。<br>　<br>“这就像花儿一样，如果你爱上了一颗星球上的花儿，晚上看星空就会感到温馨。所有的星星上都鲜花盛开。”<br>　<br>因为爱上了你，我的整个世界都鲜花盛开。<br>　<br>谢谢你，<br>这个在我的世界种满鲜花的你。<br>　<br><br>and……最后最重要的……祝最最最最亲爱的女盆友：<br>　<br>生日快乐！<br>　<br>去年明明是祝你的一句生日快乐，结果给我带来了整整一年的快乐。<br>　<br>在你新的一岁里，我会努力回馈老客户，也给你送去更多快乐的^_^<br>　<br>~ The End & Happy Birthday ~";
 	var noteArr1 = noteContent.split('<br>');
 	var noteArr2 = new Array();
 	var noteArr3 = new Array();
