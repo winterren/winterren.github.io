@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#display{
+			list-style: none;
+			margin: 5px 0;
+			padding: 0;
+		}
+		#display li{
+			list-style: none;
+			display: inline-block;
+			padding: 5px;
+			margin:0 5px 5px 0;
+			border:1px solid #aaa;
+			background: #eee;
+			font-size:10px;
+			color: #aaa;
+			vertical-align: bottom;
+		}
+	</style>
+</head>
+<body>
+	<div id="insert-div">
+		<h3>Insert/ Delete</h3>
+		<!-- <input type="text" id="input-text"> -->
+		<textarea name="input-text" id="input-text" cols="30" rows="10">华莱士,蛤三篇、233 大新闻
+蛤蛤</textarea>
+		<br>
+		<button id="leftin" value="LeftIn">LeftIn</button>
+		<button id="rightin" value="RightIn">RightIn</button>
+		<button id="leftout" value="LeftOut">LeftOut</button>
+		<button id="rightout" value="RightOut">RightOut</button>
+	</div>
+	<hr/>
+	<div id="search-div">
+		<h3>Search</h3>
+		<input type="text" id="search-text" value="蛤">
+		<button id="search-btn">Search</button>
+	</div>
+	<hr/>
+	<ul id="display">
+		
+	</ul>
+</body>
+<script>
+	var inputText = getid('input-text');
+	var leftIn = getid('leftin');
+	var leftOut = getid('leftout');
+	var rightIn = getid('rightin');
+	var rightOut = getid('rightout');
+	var display = getid('display');
+	var queue = new Array();
+
+	// 选择器
+	function getid(id){
+		return document.getElementById(id);
+	}
+
+	// 创建执行函数
+	function putLeftIn(input){
+		queue.unshift(input);
+	}
+
+	function putRightIn(input){
+		queue.push(input);
+	}
+
+	function putLeftOut(){
+		var removed = queue.shift();
+		alert(removed);
+	}
+
+	function putRightOut(){
+		var removed = queue.pop();
+		alert(removed);
+	}
+
+	// 检验合法性
+	function splitInput(input){
+		var newqueue = input.split(/\s{1,}|、|,|，/);
+		return newqueue;
+	}
+
+	// 渲染
+	function render(){
+		display.innerHTML = ""
+		for (var i=0;i<queue.length;i++){
+			var newLi = document.createElement('li');
+			var newText = document.createTextNode(queue[i]);
+			newLi.append(newText);
+			display.append(newLi)
+		}
+	}
+
+	// 绑定事件
+	leftin.addEventListener('click',function(){
+		var input = inputText.value.trim();
+		var childque = splitInput(input);
+		if(childque){
+			for(var i=childque.length-1;i>=0;i--){
+				putLeftIn(childque[i]);
+			}
+			render();
+		}
+	})
+	rightin.addEventListener('click',function(){
+		var input = inputText.value.trim();
+		var childque = splitInput(input);
+		if(childque){
+			for(var i=0;i<childque.length;i++){
+				putRightIn(childque[i]);
+			}
+			render();
+		}
+	})
+	leftout.addEventListener('click',function(){
+		if (queue.length){
+			putLeftOut();
+			render();
+		}
+		
+	})
+	rightout.addEventListener('click',function(){
+		if(queue.length){
+			putRightOut();
+			render();
+		}
+	})
+
+	var searchText = getid('search-text').value;
+	var searchBtn = getid('search-btn');
+
+	// 搜索函数
+	function search(input){
+		var inputText = input.trim();
+		for(var i=0;i<queue.length;i++){
+			if(queue[i].match(inputText)){
+				display.children[i].style.background = "#888";
+				display.children[i].style.color = "#fff";
+			}
+		}
+	}
+
+	// 绑定搜索函数
+	searchBtn.addEventListener('click',function(){
+		search(searchText);
+	})
+
+
+</script>
+</html>

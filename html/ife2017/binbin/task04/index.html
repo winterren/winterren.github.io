@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#display{
+			list-style: none;
+			margin: 5px 0;
+			padding: 0;
+		}
+		#display li{
+			list-style: none;
+			display: inline-block;
+			padding: 5px;
+			margin:0 5px 5px 0;
+			border:1px solid #aaa;
+			background: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<input type="text" id="input-text">
+		<button id="leftin" value="LeftIn">LeftIn</button>
+		<button id="rightin" value="RightIn">RightIn</button>
+		<button id="leftout" value="LeftOut">LeftOut</button>
+		<button id="rightout" value="RightOut">RightOut</button>
+	</div>
+	<ul id="display">
+		
+	</ul>
+</body>
+<script>
+	var inputText = getid('input-text');
+	var leftIn = getid('leftin');
+	var leftOut = getid('leftout');
+	var rightIn = getid('rightin');
+	var rightOut = getid('rightout');
+	var display = getid('display');
+	var queue = new Array();
+
+	// 选择器
+	function getid(id){
+		return document.getElementById(id);
+	}
+
+	// 创建执行函数
+	function putLeftIn(input){
+		queue.unshift(input);
+	}
+
+	function putRightIn(input){
+		queue.push(input);
+	}
+
+	function putLeftOut(){
+		var removed = queue.shift();
+		alert(removed);
+	}
+
+	function putRightOut(){
+		var removed = queue.pop();
+		alert(removed);
+	}
+
+	// 检验合法性
+	function veryfied(input){
+		if(!(isNaN(input))){
+			return input;
+		}else{
+			alert('请输入数字！');
+			return false;
+		}
+	}
+
+	// 渲染
+	function render(){
+		display.innerHTML = ""
+		for (var i=0;i<queue.length;i++){
+			var newLi = document.createElement('li');
+			var newText = document.createTextNode(queue[i]);
+
+			newLi.append(newText);
+			display.append(newLi);
+		}
+	}
+
+	// 绑定事件
+	leftin.addEventListener('click',function(){
+		var number = inputText.value.trim();
+		if(veryfied(number)){
+			putLeftIn(number);
+			render();
+		}
+	})
+	rightin.addEventListener('click',function(){
+		var number = inputText.value.trim();
+		if(veryfied(number)){
+			putRightIn(number);
+			render();
+		}
+	})
+	leftout.addEventListener('click',function(){
+		if (queue.length){
+			putLeftOut();
+			render();
+		}
+		
+	})
+	rightout.addEventListener('click',function(){
+		if(queue.length){
+			putRightOut();
+			render();
+		}
+	})
+
+
+</script>
+</html>

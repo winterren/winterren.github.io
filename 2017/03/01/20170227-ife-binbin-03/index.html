@@ -11,6 +11,7 @@
 Reference
 Javascript MDN
 DOM
+数组
 
 Demo
 Example Page
@@ -18,7 +19,9 @@ Example Page
 Note数组对象遍历、读写、排序等操作
 遍历Element.children和Element.childNodes都是子元素childNodes会把多余的空格或回车统计进去
 
-排序采取sort方法。但因为sort默认按照字符串排序，所以应该让sort方法按照自定">
+插入数组的尾部插入使用push，Node节点的内部插入使用append。
+
+排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS任务三：零基础JavaScript编码（三）">
 <meta property="og:url" content="http://yoursite.com/2017/03/01/20170227-ife-binbin-03/index.html">
@@ -29,6 +32,7 @@ Note数组对象遍历、读写、排序等操作
 Reference
 Javascript MDN
 DOM
+数组
 
 Demo
 Example Page
@@ -36,8 +40,10 @@ Example Page
 Note数组对象遍历、读写、排序等操作
 遍历Element.children和Element.childNodes都是子元素childNodes会把多余的空格或回车统计进去
 
-排序采取sort方法。但因为sort默认按照字符串排序，所以应该让sort方法按照自定">
-<meta property="og:updated_time" content="2017-03-03T19:20:56.678Z">
+插入数组的尾部插入使用push，Node节点的内部插入使用append。
+
+排序">
+<meta property="og:updated_time" content="2017-03-05T06:51:05.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS任务三：零基础JavaScript编码（三）">
 <meta name="twitter:description" content="Lesson
@@ -46,6 +52,7 @@ Note数组对象遍历、读写、排序等操作
 Reference
 Javascript MDN
 DOM
+数组
 
 Demo
 Example Page
@@ -53,7 +60,9 @@ Example Page
 Note数组对象遍历、读写、排序等操作
 遍历Element.children和Element.childNodes都是子元素childNodes会把多余的空格或回车统计进去
 
-排序采取sort方法。但因为sort默认按照字符串排序，所以应该让sort方法按照自定">
+插入数组的尾部插入使用push，Node节点的内部插入使用append。
+
+排序">
   
     <link rel="alternative" href="/atom.xml" title="winterren的博客" type="application/atom+xml">
   
@@ -279,12 +288,15 @@ Note数组对象遍历、读写、排序等操作
 <h2 id="Reference">Reference</h2><ul>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript" target="_blank" rel="external">Javascript MDN</a></li>
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/DOM" target="_blank" rel="external">DOM</a></li>
+<li><a href="http://javascript.ruanyifeng.com/stdlib/array.html" target="_blank" rel="external">数组</a></li>
 </ul>
 <h2 id="Demo">Demo</h2><ul>
 <li><a href="/html/ife2017/binbin/task03/index.html">Example Page</a></li>
 </ul>
 <h2 id="Note">Note</h2><h4 id="数组对象遍历、读写、排序等操作">数组对象遍历、读写、排序等操作</h4><ul>
 <li><p>遍历<br>Element.children和Element.childNodes都是子元素<br>childNodes会把多余的空格或回车统计进去</p>
+</li>
+<li><p>插入<br>数组的尾部插入使用push，Node节点的内部插入使用append。</p>
 </li>
 <li><p>排序<br>采取sort方法。<br>但因为sort默认按照字符串排序，所以应该让sort方法按照自定义方式排序。<br>函数中如果返回值大于零则a排在b后面。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[10111, 1101, 111].sort(function (a, b) &#123;</span><br><span class="line">  return a - b;</span><br><span class="line">&#125;)</span><br><span class="line">// [111, 1101, 10111]</span><br><span class="line"></span><br><span class="line">function sortAqiData(data) &#123;</span><br><span class="line">  return data.sort(function(a,b)&#123;</span><br><span class="line">    return a[1] - b[1];</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">//本例中需要用到二维数组的第二个数据</span><br></pre></td></tr></table></figure>
@@ -307,7 +319,7 @@ Note数组对象遍历、读写、排序等操作
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          JS任务一：零基础JavaScript编码（一）
+          任务四：基础JavaScript练习（一）
         
       </div>
     </a>
