@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task07</title>
+	<style>
+		#container div{
+			min-width: 50px;
+			min-height: 20px;
+			display: inline-block;
+			padding: 5px;
+			border: 1px solid #aaa;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div></div>
+	</div>
+</body>
+<script>
+
+	var container = document.getElementById('container');
+	function Node(val,dom) {
+	    this.val = val;
+	    this.left = null;
+	    this.right = null;
+	    this.dom = dom;
+	}
+
+	function Tree(rootval) {
+		this.root = new Node(rootval);
+		this.dom = container.children[0];
+	}
+
+	Tree.prototype.put = function(x,val){
+		if(x==null){
+			var newDiv = document.createElement('div');
+			this.dom.append(newDiv);
+			return new Node(val,this.dom.children[2]);
+		}
+		if(val<x.val){
+			x.left = this.put(x.left,val);
+		}
+		if(val>x.val){
+			x.right = this.put(x.right,val);
+		}
+		return x;
+	}
+
+	t = new Tree(200);
+	// 两层
+	t.put(t.root, 100);
+	t.put(t.root, 300);
+	// 三层
+	t.put(t.root, 50);
+	t.put(t.root, 150);
+	t.put(t.root, 250);
+	t.put(t.root, 350);
+	// 四层
+	t.put(t.root, 25);
+	t.put(t.root, 75);
+	t.put(t.root, 125);
+	t.put(t.root, 175);
+	t.put(t.root, 225);
+	t.put(t.root, 275);
+	t.put(t.root, 325);
+	t.put(t.root, 375);
+
+
+	// Tree.prototype.generate = function(){
+	// 	var length = queue.length;
+	// 	for(var i=0; i<length; i++){
+	// 		if(queue[i].left==null){
+	// 			var newNode = new Node();
+	// 			this.queue.push(newNode);
+	// 			queue[i].left==
+	// 		}
+	// 	}
+	// }
+
+
+	// Tree.prototype.add = function(){
+	// 	(function addOne(currenNode){
+	// 		if(currenNode.left==null && currenNode.right==null){
+	// 			var newNode = new Node();
+	// 			this.queue.push(newNode);
+	// 		}
+	// 	})(_root)
+	// }
+	// var tree = new Tree();
+</script>
+</html>
