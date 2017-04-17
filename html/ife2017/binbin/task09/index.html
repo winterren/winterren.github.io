@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#container div{
+			min-width: 50px;
+			min-height: 20px;
+			display: inline-block;
+			padding: 5px;
+			border: 1px solid #aaa;
+			background: #FFF;
+		}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div>老头
+			<div>蛤
+				<div>著作
+					<div>三篇</div>
+					<div>华莱士</div>
+					<div>谈笑风生</div>
+				</div>
+				<div>
+					+1s
+				</div>
+			</div>
+			<div>川
+				<div>
+					没毛病
+				</div>
+				<div>刚
+					<div>推特</div>
+					<div>纽约时报</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<br>
+	<div>
+		<button id="DLR">前序遍历</button>
+		<button id="LRD">后序遍历</button>
+	</div>
+	<br>
+	<div>
+		<input id="lookup-input" type="text" value="蛤">
+		<button id="lookup-btn">Search</button>
+	</div>
+	<script>
+		
+		var time1 = 500;
+		var time2 = 1000;
+		var processing = false;
+		var container = document.getElementById('container');
+		var btnDLR = document.getElementById('DLR');
+		var btnLRD = document.getElementById('LRD');
+		var lookupInput = document.getElementById('lookup-input');
+		var lookupBtn =document.getElementById('lookup-btn');
+
+		function colorDiv(x){
+			x.style.background = "#aaa";
+		}
+
+		function uncolorDiv(x){
+			x.style.background = "#FFF";
+		}
+
+		function colorDivRed(x){
+			time1 += 500;
+			time2 += 500;
+			timer = setTimeout(function(){
+				x.style.background = "#ccaaaa";
+			},time1);	
+		}
+		function colorThenUncolor(x){
+			time1 += 500;
+			time2 += 500;
+			// 上色
+			timer = setTimeout(function(){
+				colorDiv(x);
+			},time1);
+			// 去色
+			timer = setTimeout(function(){
+				uncolorDiv(x);
+			},time2);
+		}
+
+		// DLR
+		function preOrder(x){
+			if(!(x==null)){
+				colorThenUncolor(x);
+				for(var i=0;i<x.children.length;i++){
+					preOrder(x.children[i]);
+				}
+
+			}
+		}
+
+
+		// LRD
+		function postOrder(x){
+			if(!(x==null)){
+				for(var i=0;i<x.children.length;i++){
+					preOrder(x.children[i]);
+				}
+				colorThenUncolor(x);
+			}
+		}
+
+		var find = 0;
+		// lookup
+		function lookUp(x,word){
+			
+			if(!(x==null)){
+				if(x.firstChild.textContent.trim()==word){
+					colorDivRed(x);
+					find++;
+				}else{
+					colorThenUncolor(x);
+				}
+				for(var i=0;i<x.children.length;i++){
+					lookUp(x.children[i],word);
+				}
+
+			}
+			return find;
+		}
+
+
+		// 绑定事件
+		// 先序遍历
+		btnDLR.addEventListener('click',function(){
+			time1 = 500;
+			time2 = 1000;
+			preOrder(container.firstElementChild);
+		});
+		// 后序遍历
+		btnLRD.addEventListener('click',function(){
+			time1 = 500;
+			time2 = 1000;
+			postOrder(container.firstElementChild);
+		});
+		// 查找
+		lookupBtn.addEventListener('click',function(){
+			find = 0;
+			time1 = 500;
+			time2 = 1000;
+			var findresult = lookUp(container.firstElementChild,lookupInput.value.trim())
+			timer = setTimeout(function(){
+				if(!findresult){
+					alert("Not Found!");
+				}
+			},time2);
+		});
+
+		// 定义一个从头到尾遍历并可以接收函数的函数
+		// 
+		function traversal(x, func){
+			if(!(x==null)){
+				func(x);
+				// console.log(func);
+				for(var i=0;i<x.children.length;i++){
+					traversal(x.children[i],func);
+				}
+			}
+		}
+
+		function bindevent(x){
+			x.addEventListener('click',function(e){
+				e.stopPropagation();
+				x.style.background = "#369";
+			},false);
+		}
+
+		traversal(container.firstElementChild,bindevent);
+	</script>
+</body>
+</html>

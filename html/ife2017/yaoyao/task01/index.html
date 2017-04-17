@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+	function Card(num){
+		this.color = Math.floor(num / 13);
+		this.point = num % 13;
+	}
+
+
+	function valueOf(array){
+		var length = array.length;
+		// var posArray = new Array();
+		var tempArray = new Array();
+
+		// 检验是否5-7个卡片
+		if(length<5||length>7){
+			return false;
+		}
+		// 按点数排序
+		array = array.sort(function(c1,c2){
+			return c1.point - c2.point;
+		})
+
+		// 做差数组
+		// eg
+		// array =  [3,5,7,7,11]
+		// difArray=[2,2,0,4]
+		var difArray = new Array();
+		for(var i=0;i<length-1;i++){
+			difArray.push(array[i+1].point-array[i].point);
+		} 
+
+		// 判断同点数，并记录有几 次
+		// eg
+		// array =    [2,4,4,4,5,5]
+		// difArray=  [2,0,0,1,0]
+		// equalArray=[0,2,1,0,1]
+		var equalArray = new Array();
+		for(var i = 0; i <length-1; i++){
+			equalArray[i]=0;
+			var j = i;
+			while(difArray[j]==0){
+				equalArray[i]++;
+				j++;	
+			}
+		}
+
+		// 判断顺子
+		// eg
+		// array =       [1,2,6,7,8,9,10]
+		// difArray=     [1,4,1,1,1,1]
+		// straightArray=[1,0,4,3,2,1]
+		var straightArray = new Array();
+		for(var i = 0; i<length-1; i++){
+			straightArray[i]=0;
+			var j = i;
+			while(difArray[j]==1){
+				straightArray[i]++;
+				j++;
+			}
+		}
+
+		// 从num开始找n数字之和
+		function sumN(num,n){
+			var sum = 0;
+			for(var i=num;i<num+5;i++){
+				sum = sum + array[i];
+			}
+			return sum;
+		}
+
+		// 牌型等级
+		var level = 0;
+
+		// 同点数系列
+		// Four of a kind
+		var four = equalArray.indexOf(3);
+		var three = equalArray.lastIndexOf(2);
+		var two = equalArray.lastIndexOf(1);
+		if(four!=-1){
+			// Four of a kind
+			level = 700;
+			
+			
+		}
+		// Fullhouse & Three of a kind
+		else if(three!=-1){
+			posArray = [three, three+1, three+2];
+			// 往后找pair
+			if(equalArray.indexOf(1,three+3)!=-1){
+				// Fullhouse
+				level = 600;
+
+				posArray[3] = equalArray.indexOf(1,three+3);
+				posArray[4] = posArray[3]+1;
+			}
+			// 往前找pair
+			else if(equalArray.lastIndexOf(1,three-1)!=-1){
+				// Fullhouse
+				level = 600;
+
+				posArray[3] = equalArray.lastIndexOf(1,three-1);
+				posArray[4] = posArray[3]+1;
+			}
+			// 判断
+			else{
+				// Three of a kind
+				level = 300;
+			}
+
+
+
+			if(equalArray.lastIndexOf(1,three-1)!=-1){
+				// Fullhouse
+				level = 600;
+			}else{
+				// Three of a kind
+				level = 300;
+			}
+		}
+		// Two pairs & One Pair
+		else if(two!=-1){
+			if(equalArray.indexOf(1,two+1)!=-1){
+				// Two pairs
+				level = 200;
+			}else{
+				// One pair
+				level = 100;
+			}
+		}
+
+		// 同花系列
+		var colorArray = [0,0,0,0];
+		for(var i=0; i<length; i++){
+			switch(array[i].color){
+				case 0:
+					colorArray[0] ++;
+					break;
+				case 1:
+					colorArray[1] ++;
+					break;
+				case 2:
+					colorArray[2] ++;
+					break;
+				case 3:
+					colorArray[3] ++;
+					break;
+			}
+		}
+		console.log(colorArray);
+		if (Math.floor(colorArray[0]/5)||Math.floor(colorArray[1]/5)||Math.floor(colorArray[2]/5)||Math.floor(colorArray[3]/5)){
+			if (level<500){
+				// Flush
+				level = 500;
+			}
+		}
+
+		// 顺子系列
+		straightIndex = straightArray.lastIndexOf(4);
+		if(straightIndex!=-1){
+			if(level<400){
+				// Straight
+				level = 400;
+			}
+		}
+
+
+		// 同花顺
+		// 检验从num起连续5个的花色是否一致
+		function verifyColor(num){
+			for(var i=num; i<num+4; i++){
+				if(array[i].color!=array[i+1].color){
+					return false;
+				}
+			}
+			return true;
+		}
+		if(straightIndex!=-1){
+			while(straightIndex!=-1){
+				if(verifyColor(straightIndex)==true){
+					level = 800;
+					break;
+				}else{
+					straightIndex = straightArray.lastIndexOf(4,straightIndex-1);
+				}
+			}
+		}
+
+
+		console.log(level)
+
+	}
+
+	a0=new Card(0);
+	a1=new Card(1);
+	a2=new Card(2);
+	a3=new Card(3);
+	a4=new Card(4);
+	a5=new Card(20);
+	a6=new Card(21);
+	arr1 = [a1,a1,a1,a2,a2];
+	arr2 = [a1,a2,a3,a4,a4];
+	arr3 = [a1,a2,a3,a4,a5,a6];
+	arr4 = [a1,a2,a3,a4,a0];
+
+</script>
+</html>

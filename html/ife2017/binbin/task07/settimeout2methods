@@ -1,0 +1,22 @@
+var i = 0;
+var time = setInrteval(function(){
+	if( i > xxx.length){
+		clearInterval(time);
+	}else{
+		i++;
+	}
+},1000)
+
+
+////
+
+
+var time = 0
+for(var i=0){
+  for(var j=i+1) {
+    setTimeout(render,  time)
+    time += 1000
+  }
+}
+
+newCoder刷题
