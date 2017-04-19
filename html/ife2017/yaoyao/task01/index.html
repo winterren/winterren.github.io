@@ -3,22 +3,80 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		#result-text{
+			font-size:25px;
+			color:#cc0806;
+		}
+	</style>
 </head>
 <body>
-	
+	<p>输入5-7个数字，用“,”隔开。</p>
+	<p>数字大小应该在0~51之间。</p>
+	<p>每个数字代表一张牌，0是红桃1,，13是红桃A，以此类推……</p>
+	<p>Tom</p>
+	<input type="text" value="1,2,3,4,5" id="input1">
+	<p>Jerry</p>
+	<input type="text" value="5,2,3,4,5" id="input2">
+	<p></p>
+	<button id="btn">Compare</button>
+	<p id="result-text"></p>
+
 </body>
 <script>
-
-	function Card(num){
-		this.color = Math.floor(num / 13);
-		this.point = num % 13;
+// HTML绑定事件部分
+var input1 = document.getElementById('input1');
+var input2 = document.getElementById('input2');
+var btn = document.getElementById('btn');
+var resultText = document.getElementById('result-text');
+function generateCard(array){
+	var arrayCard = new Array();
+	for(var i=0;i<array.length;i++){
+		var singleCard = new Card(array[i]);
+		arrayCard.push(singleCard);
 	}
+	return arrayCard;
+}
+function compare(input1,input2){
+	var arr1 = input1.value.split(',');
+	var arr2 = input2.value.split(',');
+	var arrCard1 = generateCard(arr1);
+	var arrCard2 = generateCard(arr2);
+	var result1 = valueOf(arrCard1);
+	var result2 = valueOf(arrCard2);
+	var result1Text = "Tom's Card Type: "+  result1[1]+"<br/>";
+	var result2Text = "Jerry's Card Type: "+  result2[1]+"<br/>";
+	var whoWins = "";
+	if(result1[0]>result2[0]){
+		whoWins = "Tom Wins";
+		// 
+	}else if(result1[0]===result2[0]){
+		whoWins = "Tie";
+	}else{
+		whoWins="Jerry Wins";
+	}
+	whoWins=result1Text + result2Text + whoWins;
+	resultText.innerHTML=whoWins;
+}
+btn.addEventListener('click',function(){
+	compare(input1,input2);
+})
+
+// 逻辑部分
 
 
+	// 卡片对象
+	function Card(num){
+		this.color = Math.floor(num / 14);
+		this.point = num % 14;
+		this.num = num;
+	}
+	// 给每个牌组生成一个level分数，比大小只要对比分数就可以了
 	function valueOf(array){
 		var length = array.length;
 		// var posArray = new Array();
 		var tempArray = new Array();
+		
 
 		// 检验是否5-7个卡片
 		if(length<5||length>7){
@@ -29,7 +87,9 @@
 			return c1.point - c2.point;
 		})
 
-		// 做差数组
+		tempArray = array.slice();
+
+		// 备用做差数组
 		// eg
 		// array =  [3,5,7,7,11]
 		// difArray=[2,2,0,4]
@@ -38,7 +98,7 @@
 			difArray.push(array[i+1].point-array[i].point);
 		} 
 
-		// 判断同点数，并记录有几 次
+		// 备用判断同点数数组，并记录有几次同点数
 		// eg
 		// array =    [2,4,4,4,5,5]
 		// difArray=  [2,0,0,1,0]
@@ -53,163 +113,209 @@
 			}
 		}
 
-		// 判断顺子
-		// eg
-		// array =       [1,2,6,7,8,9,10]
-		// difArray=     [1,4,1,1,1,1]
-		// straightArray=[1,0,4,3,2,1]
-		var straightArray = new Array();
-		for(var i = 0; i<length-1; i++){
-			straightArray[i]=0;
-			var j = i;
-			while(difArray[j]==1){
-				straightArray[i]++;
-				j++;
-			}
-		}
-
-		// 从num开始找n数字之和
-		function sumN(num,n){
-			var sum = 0;
-			for(var i=num;i<num+5;i++){
-				sum = sum + array[i];
-			}
-			return sum;
-		}
-
 		// 牌型等级
 		var level = 0;
+		var levelText="";
 
+		// *************
+		//   计算牌型
+		// *************
 		// 同点数系列
-		// Four of a kind
 		var four = equalArray.indexOf(3);
 		var three = equalArray.lastIndexOf(2);
 		var two = equalArray.lastIndexOf(1);
+		// *************
+		// 有四张相同直接四条
+		// *************
 		if(four!=-1){
 			// Four of a kind
-			level = 700;
-			
-			
+			level = 700000000;
+			levelText="Four of a kind";
+			tempArray.splice(four,4);
+			level += 1000000*4*array[four].point+tempArray[tempArray.length-1].point;	
 		}
+		// *************
+		// 有3张相同，判断是否有对子，输出葫芦或三条
+		// *************
 		// Fullhouse & Three of a kind
 		else if(three!=-1){
-			posArray = [three, three+1, three+2];
-			// 往后找pair
-			if(equalArray.indexOf(1,three+3)!=-1){
+			
+			var havePair = ((equalArray.indexOf(1,three+3)+1))||(equalArray.lastIndexOf(1,three-1)+1)||0;
+			havePair -= 1;
+			if(three==0){havePair=-1}
+			if(havePair!=-1){
 				// Fullhouse
-				level = 600;
-
-				posArray[3] = equalArray.indexOf(1,three+3);
-				posArray[4] = posArray[3]+1;
+				level = 600000000;
+				levelText="Fullhouse";
+				level += 10000*3*array[three].point + 100*2*array[havePair].point;
 			}
-			// 往前找pair
-			else if(equalArray.lastIndexOf(1,three-1)!=-1){
-				// Fullhouse
-				level = 600;
-
-				posArray[3] = equalArray.lastIndexOf(1,three-1);
-				posArray[4] = posArray[3]+1;
-			}
+			
 			// 判断
 			else{
 				// Three of a kind
-				level = 300;
-			}
-
-
-
-			if(equalArray.lastIndexOf(1,three-1)!=-1){
-				// Fullhouse
-				level = 600;
-			}else{
-				// Three of a kind
-				level = 300;
+				level = 300000000;
+				levelText="Three of a kind";
+				tempArray.splice(three,3);
+				level += 10000*3*array[three].point + tempArray[tempArray.length-1].point + tempArray[tempArray.length-2].point;
 			}
 		}
+		// *************
+		// 有两张相同，判断是否有多次两张相同，输出两对或一对
+		// *************
 		// Two pairs & One Pair
 		else if(two!=-1){
-			if(equalArray.indexOf(1,two+1)!=-1){
+			var hasTwoPairs = equalArray.lastIndexOf(1,two-1);
+			if(two==0){hasTwoPairs=-1}
+			if(hasTwoPairs!=-1){
 				// Two pairs
-				level = 200;
+				level = 200000000;
+				levelText="Two pairs";
+				tempArray.splice(two,2);
+				tempArray.splice(hasTwoPairs,2);
+				level += 100*2*array[two].point + 2*array[hasTwoPairs].point + tempArray[tempArray.length-1].point;
+
 			}else{
 				// One pair
-				level = 100;
+				level = 100000000;
+				levelText="One pair";
+				tempArray.splice(two,2);
+				level += 100*2*array[two].point + tempArray[tempArray.length-1].point+tempArray[tempArray.length-2].point+tempArray[tempArray.length-3].point;
 			}
 		}
 
+		// *************
 		// 同花系列
-		var colorArray = [0,0,0,0];
+		// *************
+
+		var arr0 =[];
+		var arr1 =[];
+		var arr2 =[];
+		var arr3 =[];
 		for(var i=0; i<length; i++){
 			switch(array[i].color){
 				case 0:
-					colorArray[0] ++;
+					arr0.push(i);
 					break;
 				case 1:
-					colorArray[1] ++;
+					arr1.push(i);
 					break;
 				case 2:
-					colorArray[2] ++;
+					arr2.push(i);
 					break;
 				case 3:
-					colorArray[3] ++;
+					arr3.push(i);
 					break;
 			}
 		}
-		console.log(colorArray);
-		if (Math.floor(colorArray[0]/5)||Math.floor(colorArray[1]/5)||Math.floor(colorArray[2]/5)||Math.floor(colorArray[3]/5)){
-			if (level<500){
+		var colorArray=[arr0,arr1,arr2,arr3];
+		colorArray = colorArray.sort(function(c1,c2){
+			return c1.length - c2.length;
+		})
+		
+		if (Math.floor(colorArray[3].length/5)){
+			if (level<500000000){
 				// Flush
-				level = 500;
+				level = 500000000;
+				levelText="Flush";
+				level += array[colorArray[3][colorArray[3].length-1]].point +
+					 array[colorArray[3][colorArray[3].length-2]].point +
+					 array[colorArray[3][colorArray[3].length-3]].point +
+					 array[colorArray[3][colorArray[3].length-4]].point +
+					 array[colorArray[3][colorArray[3].length-5]].point;
 			}
 		}
+		// 
+		// *************
+		// 顺子系列，先将排序后的数组去重，然后每五个相减
+		// *************
+		// 
+		var stArray = array.slice();
 
-		// 顺子系列
-		straightIndex = straightArray.lastIndexOf(4);
-		if(straightIndex!=-1){
-			if(level<400){
-				// Straight
-				level = 400;
+		// 第一步去重
+		for(var i=array.length-2;i>=0 ;i--){
+			if(array[i].point==array[i+1].point){
+				stArray.splice(i,1);
 			}
 		}
-
-
-		// 同花顺
-		// 检验从num起连续5个的花色是否一致
-		function verifyColor(num){
-			for(var i=num; i<num+4; i++){
-				if(array[i].color!=array[i+1].color){
-					return false;
+		// 第二步如果有A(point=13)队头添一个A(point=-1)
+		if(stArray[stArray.length-1].point==13){
+			var newCard = new Card(stArray[stArray.length-1].num);
+			newCard.point=-1;
+			stArray.unshift(newCard);
+		}
+		// 第三步每5个数相减，得到4说明是顺子
+		for(var i=stArray.length-1;i>=4;i--){
+			var whetherFour = stArray[i].point - stArray[i-4].point;
+			if(whetherFour===4){
+				// 有顺子
+				if(level<400000000){
+					// Straight
+					level = 400000000;
+					levelText="Straight";
+					level += stArray[i].point ;
 				}
-			}
-			return true;
-		}
-		if(straightIndex!=-1){
-			while(straightIndex!=-1){
-				if(verifyColor(straightIndex)==true){
-					level = 800;
-					break;
-				}else{
-					straightIndex = straightArray.lastIndexOf(4,straightIndex-1);
+				// 是否是同花顺
+				if((stArray[i].color==stArray[i-1].color)&&(stArray[i].color==stArray[i-2].color)&&(stArray[i].color==stArray[i-3].color)&&(stArray[i].color==stArray[i-4].color)){
+						// Straight Flush
+						level = 800000000;
+						levelText="Straight Flush";
+						level += stArray[i].point ;
+						if(level===800000013){
+							// Royal Flush
+							level = 900000000;
+							levelText="Royao Flush";
+						}
 				}
+				break;
 			}
 		}
 
+		// 最后啥都不是的就是高牌了
+		if(level<100000000){
+			level= array[array.length-1].point + array[array.length-2].point + array[array.length-3].point + array[array.length-4].point + array[array.length-5].point;
+			levelText="High card";
+		}
 
-		console.log(level)
 
+		console.log(levelText);
+		console.log(level);
+		return [level,levelText];
 	}
 
-	a0=new Card(0);
-	a1=new Card(1);
-	a2=new Card(2);
-	a3=new Card(3);
-	a4=new Card(4);
-	a5=new Card(20);
-	a6=new Card(21);
-	arr1 = [a1,a1,a1,a2,a2];
-	arr2 = [a1,a2,a3,a4,a4];
-	arr3 = [a1,a2,a3,a4,a5,a6];
-	arr4 = [a1,a2,a3,a4,a0];
+	// a0=new Card(0);
+	// a1=new Card(1);
+	// a2=new Card(2);
+	// a3=new Card(3);
+	// a4=new Card(4);
+	// a5=new Card(5);
+	// a11=new Card(11);
+	// a10=new Card(10);
+	// a9=new Card(9);
+	// a12=new Card(12);
+	// a13=new Card(13);
+	// a14=new Card(14);
+	// a15=new Card(15)
+	// a19=new Card(19);
+	// a20=new Card(20);
+	// a21=new Card(21);
+	// arr1 = [a1,a1,a3,a1,a2,a1];
+	// arr2 = [a1,a2,a3,a4,a4,a3,a4];
+	// arr3 = [a1,a20,a4,a4,a4];
+	// arr4 = [a1,a20,a4,a4,a1,a20];
+	// arr5 = [a1,a20,a21,a1,a4];
+	// arr6 = [a1,a1,a2,a20,a3,a4];
+	// arr7 = [a13,a1,a2,a3,a4];
+	// arr8 = [a0,a1,a20,a3,a4];
+	// arr9 = [a9,a10,a11,a12,a13];
+	// valueOf(arr1);//707
+	// valueOf(arr2);//618
+	// valueOf(arr3);//320
+	// valueOf(arr4);//223
+	// valueOf(arr5);//121
+	// valueOf(arr6);//5xx
+	// valueOf(arr7);//5xx
+	// valueOf(arr8);//5xx
+	// valueOf(arr9);
 
 </script>
 </html>
