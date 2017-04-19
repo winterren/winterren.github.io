@@ -15,7 +15,7 @@
 	<p>数字大小应该在0~51之间。</p>
 	<p>每个数字代表一张牌，0是红桃1,，13是红桃A，以此类推……</p>
 	<p>Tom</p>
-	<input type="text" value="1,2,3,4,5" id="input1">
+	<input type="text" value="13,12,11,10,9,8" id="input1">
 	<p>Jerry</p>
 	<input type="text" value="0,13,1,2,3,8" id="input2">
 	<p></p>
@@ -263,7 +263,7 @@ btn.addEventListener('click',function(){
 						if(level===800000013){
 							// Royal Flush
 							level = 900000000;
-							levelText="Royao Flush";
+							levelText="Royal Flush";
 						}
 				}
 				break;
@@ -272,50 +272,15 @@ btn.addEventListener('click',function(){
 
 		// 最后啥都不是的就是高牌了
 		if(level<100000000){
+			// high card
 			level= array[array.length-1].point + array[array.length-2].point + array[array.length-3].point + array[array.length-4].point + array[array.length-5].point;
 			levelText="High card";
 		}
-
 
 		console.log(levelText);
 		console.log(level);
 		return [level,levelText];
 	}
-
-	// a0=new Card(0);
-	// a1=new Card(1);
-	// a2=new Card(2);
-	// a3=new Card(3);
-	// a4=new Card(4);
-	// a5=new Card(5);
-	// a11=new Card(11);
-	// a10=new Card(10);
-	// a9=new Card(9);
-	// a12=new Card(12);
-	// a13=new Card(13);
-	// a14=new Card(14);
-	// a15=new Card(15)
-	// a19=new Card(19);
-	// a20=new Card(20);
-	// a21=new Card(21);
-	// arr1 = [a1,a1,a3,a1,a2,a1];
-	// arr2 = [a1,a2,a3,a4,a4,a3,a4];
-	// arr3 = [a1,a20,a4,a4,a4];
-	// arr4 = [a1,a20,a4,a4,a1,a20];
-	// arr5 = [a1,a20,a21,a1,a4];
-	// arr6 = [a1,a1,a2,a20,a3,a4];
-	// arr7 = [a13,a1,a2,a3,a4];
-	// arr8 = [a0,a1,a20,a3,a4];
-	// arr9 = [a9,a10,a11,a12,a13];
-	// valueOf(arr1);//707
-	// valueOf(arr2);//618
-	// valueOf(arr3);//320
-	// valueOf(arr4);//223
-	// valueOf(arr5);//121
-	// valueOf(arr6);//5xx
-	// valueOf(arr7);//5xx
-	// valueOf(arr8);//5xx
-	// valueOf(arr9);
 
 </script>
 </html>
