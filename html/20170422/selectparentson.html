@@ -4,6 +4,57 @@
 	<meta charset="UTF-8">
 	<title>Select</title>
 	<script src="vue.js"></script>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+			font-size: 12px;
+		}
+		.warp{
+			width: 200px;
+			margin: 10px;
+			padding: 10px;
+			border: 5px solid #cca0cc;
+			border-radius: 10px;
+			background: #ccbacc;
+		}
+		.keyWord{
+			box-sizing: content-box;
+			height: 16px;
+			padding: 2px;
+			/*border: 2px solid #bbb;*/
+			border-radius: 5px;
+		}
+		.keyBtn{
+			color:#fff;
+			background: #cca0cc;
+			box-sizing: content-box;
+			height: 16px;
+			padding: 2px;
+			/*border: 2px solid #bbb;*/
+			border-radius: 5px;
+		}
+
+		/* 子组件 */
+		.list li{
+			margin-top:5px;
+			display: block;
+			list-style: none;
+			text-decoration: none;
+			color:white;
+			height: 20px;
+			padding: 2px;
+			border-radius: 5px;
+		}
+		.list li:hover{
+			background: #cc88cc;
+			cursor:pointer;
+		}
+
+		body{
+			display: flex;
+		}
+	</style>
 </head>
 <body>
 	<div id="app">
@@ -31,7 +82,7 @@
 		<div class="searchIpt">
 			<div class="clearFix">
 				<input type="text" class="keyWord" v-bind:value="inputValue" v-on:click="selectShow=!selectShow">
-				<input type="button" v-bind:value="buttonValue">
+				<input type="button" v-bind:value="buttonValue" class="keyBtn">
 				<span></span>
 			</div>
 			<custom-ul v-show="!selectShow" v-bind:list="list" v-on:receive="changeValueHandle"  ></custom-ul>
@@ -53,7 +104,7 @@
 		})
 
 		var data = {
-			list1:['今天的机票','今天的日程'],
+			list1:['今天的机票','明天的日程','还是睡觉吧'],
 			list2:['今天','明天','后天']
 		}
 		new Vue({
