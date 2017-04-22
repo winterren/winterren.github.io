@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Select</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<custom-select button-value="查询" v-bind:list="list1"></custom-select>
+	</div>
+	<div id="app2">
+		<custom-select button-value="搜索" v-bind:list="list2"></custom-select>
+	</div>
+	<script>
+		// var obj={selectShow:true}
+		// 注册component
+		Vue.component("custom-select",{
+			data:function(){
+				return {
+					selectShow:true,inputValue:""
+				}
+			},
+			props:["buttonValue","list"],
+			methods:{
+				selectValueHandle:function(item){
+					this.inputValue=item;
+				}
+			},
+			template:`<section class="warp">
+		<div class="searchIpt">
+			<div class="clearFix">
+				<input type="text" class="keyWord" v-bind:value="inputValue" v-on:click="selectShow=!selectShow">
+				<input type="button" v-bind:value="buttonValue">
+				<span></span>
+			</div>
+		</div>
+		<ul class="list" v-show="!selectShow">
+			<li v-for="item in list" v-on:click="selectValueHandle(item)">{{item}}</li>
+		</ul>
+	</section>`
+		})
+
+		var data = {
+			list1:['今天的机票','今天的日程'],
+			list2:['今天','明天','后天']
+		}
+		new Vue({
+			el:"#app",
+			data:data
+		})
+		new Vue({
+			el:"#app2",
+			data:data
+		})
+	</script>
+</body>
+</html>
